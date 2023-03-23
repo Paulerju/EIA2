@@ -22,7 +22,8 @@ namespace Poem {
     for (let i: number = subjekte.length; i > 0; i--) {
         i = i;
        // console.log(i);
-        getVerse(subjekte, praedikate, objekte);
+        console.log(getVerse(subjekte, praedikate, objekte) );
+       
        
     }
 
@@ -31,11 +32,21 @@ namespace Poem {
         let vers: string = "";
         let count: number = Math.random() * _a.length; 
         count = Math.floor(count);
-        console.log(count);
-        _a.splice(count);
+        vers = vers + _a[count] + " ";
+        _a.splice(count, 1);
+        
+        let count2: number = Math.random() * _b.length; 
+        count2 = Math.floor(count2);
+        vers = vers + _b[count2] + " ";
+        _b.splice(count2, 1);
 
-        let str: string = _a[1];
-        return str; 
+        let count3: number = Math.random() * _c.length; 
+        count3 = Math.floor(count3);
+        vers = vers + _c[count3] + " ";
+        _c.splice(count3, 1);
+
+
+        return vers; 
     }
 
    // console.log(getVerse(subjekte, praedikate, objekte)); 
