@@ -2,8 +2,8 @@ namespace Poem {
     /*
     Aufgabe: <Aufgabe 1 RandomPoem>
     Name: <Judith Pauler>
-    Matrikel: <272240>
-    Datum: <24.03.23>
+    Matrikel: <Deine Matrikelnummer>
+    Datum: <Datum der letzten Bearbeitung>
     Quellen: <Kommilitonis mit denen Du zusammengearbeitet hast oder von denen Du dich inspirieren ließest>
     */
 
