@@ -5,7 +5,11 @@ var Poem;
     Aufgabe: <Aufgabe 1 RandomPoem>
     Name: <Judith Pauler>
     Matrikel: <272240>
+<<<<<<< HEAD
     Datum: <24.03.23>
+=======
+    Datum: <23.03.23>
+>>>>>>> ea397f28720803ec743b072d8cf8b2fcfcfb9f9e
     Quellen: <Kommilitonis mit denen Du zusammengearbeitet hast oder von denen Du dich inspirieren ließest>
     */
     let subjekte = ["Bellatrix", "Rodolphus", "Lucius", "James", "Snape", "Sirius"];
