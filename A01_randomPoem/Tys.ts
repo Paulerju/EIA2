@@ -2,8 +2,8 @@ namespace Poem {
     /*
     Aufgabe: <Aufgabe 1 RandomPoem>
     Name: <Judith Pauler>
-    Matrikel: <Deine Matrikelnummer>
-    Datum: <Datum der letzten Bearbeitung>
+    Matrikel: <272240>
+    Datum: <24.03.23>
     Quellen: <Kommilitonis mit denen Du zusammengearbeitet hast oder von denen Du dich inspirieren ließest>
     */
 
@@ -20,7 +20,7 @@ namespace Poem {
    // console.log(objekte);
 
     for (let i: number = subjekte.length; i > 0; i--) {
-        i = i;
+        
        // console.log(i);
         console.log(getVerse(subjekte, praedikate, objekte) );
        
