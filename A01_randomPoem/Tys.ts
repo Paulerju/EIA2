@@ -33,6 +33,7 @@ namespace Poem {
         count = Math.floor(count);
         console.log(count);
         _a.splice(count);
+        console.log(vers);
 
         let str: string = _a[1];
         return str; 
