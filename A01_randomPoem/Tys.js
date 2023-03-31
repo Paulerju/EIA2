@@ -25,25 +25,14 @@ var Poem;
         let vers = "";
         let count = Math.random() * _a.length;
         count = Math.floor(count);
-<<<<<<< HEAD
         console.log(count);
         _a.splice(count);
         console.log(vers);
-        let str = _a[1];
-        return str;
-=======
-        vers = vers + _a[count] + " ";
-        _a.splice(count, 1);
-        let count2 = Math.random() * _b.length;
-        count2 = Math.floor(count2);
-        vers = vers + _b[count2] + " ";
-        _b.splice(count2, 1);
         let count3 = Math.random() * _c.length;
         count3 = Math.floor(count3);
         vers = vers + _c[count3] + " ";
         _c.splice(count3, 1);
         return vers;
->>>>>>> bb81f380635539259241649308202849f340d417
     }
     // console.log(getVerse(subjekte, praedikate, objekte)); 
 })(Poem || (Poem = {}));

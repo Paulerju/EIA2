@@ -7,9 +7,19 @@
 #div1{
 
     background-color:antiquewhite;
+    margin-left: 30%;
+    width: 500px;
+    height: 500px;
 }
 
 #div0{
 
-    background-color:antiquewhite;
+    background-color:rgb(104, 81, 52);
+    position: absolute;
+    width: 500px;
+    height: 500px;
+}
+button{
+    background-color: rgb(250, 227, 186);
+    margin: 30px;
 }
