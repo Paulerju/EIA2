@@ -10,6 +10,7 @@ var EventInspector;
       */
     window.addEventListener("load", hndload);
     let span = document.getElementById("span");
+    let butt = document.getElementById("bt");
     function hndload() {
         document.addEventListener("mousemove", setInfoBox);
         document.addEventListener("click", logInfo);
@@ -34,6 +35,10 @@ var EventInspector;
         console.log("Target: " + _event.target);
         console.log("CurrentTarget: " + _event.currentTarget);
         console.log("Event: " + _event);
+    }
+    butt.addEventListener("click", output);
+    function output() {
+        console.log("Button wurde gedrückt");
     }
 })(EventInspector || (EventInspector = {}));
 //# sourceMappingURL=Inspector.js.map
