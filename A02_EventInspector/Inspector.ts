@@ -46,8 +46,5 @@ namespace EventInspector {
     }
     butt.addEventListener("click", output);
 
-    function output(): void {
-        console.log("Button wurde gedrückt");
-    }
 
 }
