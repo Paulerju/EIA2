@@ -11,6 +11,9 @@ namespace EventInspector {
     let span: HTMLElement = <HTMLElement>document.getElementById("span");
     let butt: HTMLElement = <HTMLElement>document.getElementById("bt");
 
+    let event: CustomEvent = new CustomEvent("buttonclicked", {  detail: {string1: "Button wurde gedrückt"}});
+  
+
 
     function hndload(): void {
 
@@ -44,7 +47,11 @@ namespace EventInspector {
         console.log("Event: " + _event);
 
     }
-    butt.addEventListener("click", output);
+    butt.addEventListener("click",function(){
+         butt.dispatchEvent(event);
+         console.log("BT wurde gedrückt");
+    })
+   
 
 
 }

@@ -11,6 +11,7 @@ var EventInspector;
     window.addEventListener("load", hndload);
     let span = document.getElementById("span");
     let butt = document.getElementById("bt");
+    let event = new CustomEvent("buttonclicked", { detail: { string1: "Button wurde gedrückt" } });
     function hndload() {
         document.addEventListener("mousemove", setInfoBox);
         document.addEventListener("click", logInfo);
@@ -36,9 +37,9 @@ var EventInspector;
         console.log("CurrentTarget: " + _event.currentTarget);
         console.log("Event: " + _event);
     }
-    butt.addEventListener("click", output);
-    function output() {
-        console.log("Button wurde gedrückt");
-    }
+    butt.addEventListener("click", function () {
+        butt.dispatchEvent(event);
+        console.log("BT wurde gedrückt");
+    });
 })(EventInspector || (EventInspector = {}));
 //# sourceMappingURL=Inspector.js.map
