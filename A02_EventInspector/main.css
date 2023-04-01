@@ -2,6 +2,8 @@
     position: fixed;
     top: 150px ; 
     left: 150px ; 
+    offset-position: 50px;
+    margin-left: 20px;
 }
 
 #div1{

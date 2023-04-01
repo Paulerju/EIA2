@@ -46,7 +46,7 @@ namespace EventInspector {
     }
 
   
-    const customevent = new CustomEvent("button",{bubbles:true, detail: {name:"bt wurde gedruekt"} });
+    const customevent = new CustomEvent("button",{bubbles:true, detail: {name:"bt wurde gedrückt"} });
 
     function button1(){
         document.addEventListener("button", customEvent);

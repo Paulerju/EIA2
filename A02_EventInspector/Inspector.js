@@ -36,7 +36,7 @@ var EventInspector;
         console.log("CurrentTarget: " + _event.currentTarget);
         console.log("Event: " + _event);
     }
-    const customevent = new CustomEvent("button", { bubbles: true, detail: { name: "bt wurde gedruekt" } });
+    const customevent = new CustomEvent("button", { bubbles: true, detail: { name: "bt wurde gedrückt" } });
     function button1() {
         document.addEventListener("button", customEvent);
         document.dispatchEvent(customevent);
