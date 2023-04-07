@@ -7,23 +7,36 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css"> 
     <script src="main.js" defer> </script>
-    
 </head>
+
 <body>
     <h1> Aufgaben Liste </h1>
     <div id="div1">  
-    <button id="add"> + Hinzufügen </button>
-    </div>
+        <div id="task1">
+           <p> <input type="checkbox" name="" id="taskbox">
+            Klo putzen bis zum 23.03.23 | Annika</p>
+            <p>Kommentar:</p>
+
+        </div></div>
+        <button id="add"> + Hinzufügen </button>
+    
 
 
     <div id="wrapper"> 
-       <input id="taskname" type="text" name="Task name" value="Überschrift">
-       <input id="name" type="text" name="name" value="Name">
-       <input id="comment" type="textarea" name="comment" value="Kommentar">
-       <select> </select>
-       <input type="checkbox">
-       <button id="bye"></button>
-       <button id="add"></button>
+       <input id="taskname" type="text" name="Task name" value="Überschrift"> <br>
+       <input id="date" type="text" name="date" value="Datum"> <br>
+       <input id="comment" type="textarea" name="comment" value="Kommentar"> <br>
+       <select name="Person" id="person"> <br>
+        <option value=" "> --please choose an option-- </option> <br>
+        <option value="Jesika">Jesika</option>    
+        <option value="Oliver">Oliver</option>   
+        <option value="Annika">Annika</option>   <br>
+    
+    </select>
+    <br>
+      <p> <input type="checkbox" id="box"> In Bearbeitung</p> <br>
+       <button id="bye">delete</button> 
+       <button id="add2">add</button> 
     </div>
 </body>
 </html>
