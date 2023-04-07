@@ -4,12 +4,11 @@ namespace EventInspector {
       Name: <Judith Pauler>
       Matrikel: <272240>
       Datum: <31.03.23>
-      Quellen: <Laura Kupferschmied>
+      Quellen: <Laura Kupferschmied, Madelein Hansen>
       */
 
     window.addEventListener("load", hndload);
     let span: HTMLElement = <HTMLElement>document.getElementById("span");
-    let butt: HTMLElement = <HTMLElement>document.getElementById("bt");
 
 
     function hndload(): void {
@@ -25,6 +24,7 @@ namespace EventInspector {
         document.body.addEventListener("keyup", logInfo);
         document.getElementById("div0")?.addEventListener("keyup", logInfo);
         document.getElementById("div1")?.addEventListener("keyup", logInfo);
+        document.getElementById("bt")?.addEventListener("click", button1);
     }
     function setInfoBox(_event: MouseEvent): void {
         let x: number = _event.clientX;
@@ -44,10 +44,21 @@ namespace EventInspector {
         console.log("Event: " + _event);
 
     }
-    butt.addEventListener("click", output);
 
-    function output(): void {
-        console.log("Button wurde gedrückt");
+  
+    const customevent = new CustomEvent("button",{bubbles:true, detail: {name:"bt wurde gedrückt"} });
+
+    function button1(){
+        document.addEventListener("button", customEvent);
+        document.dispatchEvent(customevent);
     }
+
+    function customEvent(){
+        console.log(customevent.bubbles)
+        console.log(customevent.detail)
+    }
+   
+   
+
 
 }
