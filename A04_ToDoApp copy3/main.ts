@@ -15,6 +15,7 @@ document.querySelector("#bye")?.addEventListener("click",function(){
 
 document.querySelector("#add")?.addEventListener("click",function(){
   wrap.style.setProperty("visibility", "visible"); 
+  
 
 });
 
