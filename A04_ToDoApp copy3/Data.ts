@@ -1,36 +1,39 @@
 namespace Datensammlung {
 
-    export interface Aufgabe {
+   /* export interface Aufgabe {
         taskname: string;
         date: string;
         comment: string;
         person: Selection[];
         progress: boolean;
 
-    } 
+    } */
+    
+    let taskArray1: String [] = []; 
+    let strArray1: string = taskArray1.toString();
 
-    let taskArray1: String [] = ["hello", "good"]; 
-
-  function getData() {
+  function getData(): String [] {
 
         const form: HTMLFormElement = document.querySelector('#form1')!;
-
-        form.onsubmit = () => {
+        let taskArray: String [];
+   
             const formData = new FormData(form);
-
             console.log(formData);
             const text0 = formData.get('taskname') as string;
             const text1 = formData.get('date') as string;
             const text2 = formData.get('comment') as string;
             const text3 = formData.get('Person') as string;
             const text4 = formData.get('box') as string;
-            let taskArray: String [] = [text0, text1, text2, text3, text4]; 
-            console.log(taskArray);
-            taskArray1.concat(taskArray); // why isnt this working?
+
+            taskArray = [text0, text1, text2, text3, text4]; 
+            console.log("getData: " + taskArray);
+            taskArray1 = taskArray; // why isnt this working?
+            console.log("in: "+taskArray1);
+            taskArray1 = taskArray;
             
-            return false; 
-        };
+            return taskArray1; 
     }
+
    let wrap = <HTMLElement> document.querySelector("#wrapper"); 
    let div1 = document.querySelector("#task1");
   
@@ -44,18 +47,21 @@ namespace Datensammlung {
    
    document.querySelector("#add")?.addEventListener("click",function(){
      wrap.style.setProperty("visibility", "visible"); 
-     <HTMLButtonElement>(document.createElement('button'));
+
    });
    
    document.querySelector("#add2")?.addEventListener("click",function(){
     // wrap.style.setProperty("visibility", "hidden"); 
     getData();
-    console.log("taskArray1: " + taskArray1); 
 
-    let newdiv = document.createElement("div"); // nothing gets added
+    let newdiv = document.createElement("div")
     newdiv.setAttribute("id", "newtask");
-    document.getElementById("div1")!.appendChild(newdiv);
-       
+   /* document.getElementById("div1")!.appendChild(newdiv);
+    let newP = document.createElement("p");
+    newdiv.appendChild(newP);*/
+    newdiv.innerHTML = "Whatttttttttttttt isssssssssssssss gooooing on"; 
+    
+    console.log("out: "+taskArray1);     
    
    });
    
