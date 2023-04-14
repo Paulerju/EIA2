@@ -10,12 +10,6 @@ namespace Datensammlung {
      } */
 
     let taskArray1: String[] = [];
-    let add = document.querySelector("#add2");
-    let strArray1: string = taskArray1.toString();
-    
-     
-
-
     function getData(): String[] {
 
         const form: HTMLFormElement = document.querySelector('#form1')!;
@@ -27,7 +21,7 @@ namespace Datensammlung {
         const text1 = formData.get('date') as string;
         const text2 = formData.get('comment') as string;
         const text3 = formData.get('Person') as string;
-        const text4 = formData.get('box') as string;
+        const text4 = formData.get('box') as string; 
 
         taskArray = [text0, text1, text2, text3, text4];
         console.log("getData: " + taskArray);
@@ -39,43 +33,46 @@ namespace Datensammlung {
     }; 
 
     let wrap = <HTMLElement>document.querySelector("#wrapper");
-    // let div1 = document.querySelector("#task1");
-
-    let Trashbin = document.createElement("button");
-    Trashbin.setAttribute("id", "trash");
-
-    Trashbin.addEventListener("click", function () {
-        this!.parentNode!.parentNode!.removeChild(this!.parentNode!);
-        taskArray1.pop();
-    });
 
     document.querySelector("#add")!.addEventListener("click", function () {
         wrap.style.setProperty("visibility", "visible");
 
     });
-
-    function ArraytoString(){
-        strArray1 = taskArray1.toString();
-    };
-
     
     document.querySelector("#add2")!.addEventListener("click", function (e) {
-        // wrap.style.setProperty("visibility", "hidden"); 
+         wrap.style.setProperty("visibility", "hidden"); 
       getData();
-      ArraytoString();
-      console.log("out: " + strArray1)
       let newdiv = document.createElement("div");
       newdiv.setAttribute("id", "newtask");
       let newP = document.createElement("p"); 
+      newdiv.setAttribute("id", "newp");
       document.getElementById("div1")!.appendChild(newdiv);
       document.querySelector("#div1")!.appendChild(newP);
-      newP.innerHTML = strArray1;
+      newP.innerHTML = "Aufgabe: "+ taskArray1[0] + "  bis zum: "+ taskArray1[1]+ "  Kommentar: "+ taskArray1[2]+ "  Wird gemacht von: "+ taskArray1[3];
       e.preventDefault();
 
+      let Trashbin = document.createElement("button");
+      Trashbin.setAttribute("id", "trash");
+      newP.appendChild(Trashbin);
+      Trashbin.innerHTML = "Delete";
+
+      Trashbin.addEventListener("click", function () {
+        this!.parentNode!.parentNode!.removeChild(this!.parentNode!);
+        taskArray1.pop();
     });
 
-    document.querySelector("#box")?.addEventListener("click", function () {
+    let edit = document.createElement("button");
+    edit.setAttribute("id", "edit");
+    newP.appendChild(edit);
+    edit.innerHTML = "Edit";
 
+    edit.addEventListener("click", function () {
+        wrap.style.setProperty("visibility", "visible");
+    });
+
+ if(taskArray1[4] == "on"){ //Doesnt work yet
+            newP.style.setProperty( "background-color:"," rgb(0, 166, 64)");
+        }
     });
 
 }
