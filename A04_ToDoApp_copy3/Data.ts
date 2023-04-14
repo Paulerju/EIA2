@@ -1,5 +1,13 @@
 namespace Datensammlung {
 
+      /*
+      Aufgabe: <Aufgabe 4 ToDo>
+      Name: <Judith Pauler>
+      Matrikel: <272240>
+      Datum: <14.04.23>
+      Quellen: <>
+      */
+
     let taskArray1: String[] = [];
     function getData(): String[] {
 
