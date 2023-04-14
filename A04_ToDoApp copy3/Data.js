@@ -11,6 +11,12 @@ var Datensammlung;
      } */
     let taskArray1 = [];
     let strArray1 = taskArray1.toString();
+    let newdiv = document.createElement("div");
+    newdiv.setAttribute("id", "newtask");
+    let newP = document.createElement("p");
+    document.getElementById("div1").appendChild(newdiv);
+    document.querySelector("#div1").appendChild(newP);
+    newP.innerHTML = "Whatttttttttttttt isssssssssssssss gooooing on";
     function getData() {
         const form = document.querySelector('#form1');
         let taskArray;
@@ -29,32 +35,22 @@ var Datensammlung;
         return taskArray1;
     }
     let wrap = document.querySelector("#wrapper");
-    let div1 = document.querySelector("#task1");
+    // let div1 = document.querySelector("#task1");
     let Trashbin = document.createElement("button");
     Trashbin.setAttribute("id", "trash");
     Trashbin.addEventListener("click", function () {
         this.parentNode.parentNode.removeChild(this.parentNode);
         taskArray1.pop();
     });
-    document.querySelector("#add")?.addEventListener("click", function () {
+    document.querySelector("#add").addEventListener("click", function () {
         wrap.style.setProperty("visibility", "visible");
     });
-    document.querySelector("#add2")?.addEventListener("click", function () {
+    document.querySelector("#add2").addEventListener("click", function () {
         // wrap.style.setProperty("visibility", "hidden"); 
         getData();
-        let newdiv = document.createElement("div");
-        newdiv.setAttribute("id", "newtask");
-        /* document.getElementById("div1")!.appendChild(newdiv);
-         let newP = document.createElement("p");
-         newdiv.appendChild(newP);*/
-        newdiv.innerHTML = "Whatttttttttttttt isssssssssssssss gooooing on";
         console.log("out: " + taskArray1);
     });
     document.querySelector("#box")?.addEventListener("click", function () {
     });
-    /*
-        let data: Aufgabe = {
-            taskname: "Text", date: "17.04.2023", comment: "nicht vergessen das zu machen....", person: [], progress: true
-        };*/
 })(Datensammlung || (Datensammlung = {}));
 //# sourceMappingURL=Data.js.map
