@@ -9,22 +9,23 @@ namespace Datensammlung {
       */
 
     let taskArray1: String[] = [];
+
     function getData(): String[] {
 
-        const form: HTMLFormElement = document.querySelector('#form1')!;
+        let form: HTMLFormElement = document.querySelector('#form1')!;
         let taskArray: String[];
 
-        const formData = new FormData(form);
+        let formData = new FormData(form);
         console.log(formData);
-        const text0 = formData.get('taskname') as string;
-        const text1 = formData.get('date') as string;
-        const text2 = formData.get('comment') as string;
-        const text3 = formData.get('Person') as string;
-        const text4 = formData.get('box') as string; 
+        let text0 = formData.get('taskname') as string;
+        let text1 = formData.get('date') as string;
+        let text2 = formData.get('comment') as string;
+        let text3 = formData.get('Person') as string;
+        let text4 = formData.get('box') as string; 
 
         taskArray = [text0, text1, text2, text3, text4];
         console.log("getData: " + taskArray);
-        taskArray1 = taskArray; // why isnt this working?
+        taskArray1 = taskArray; 
         return taskArray1;
     }; 
 
@@ -36,7 +37,7 @@ namespace Datensammlung {
     });
     
     document.querySelector("#add2")!.addEventListener("click", function (e) {
-        // wrap.style.setProperty("visibility", "hidden"); 
+      wrap.style.setProperty("visibility", "hidden"); 
       getData();
       let newdiv = document.createElement("div");
       newdiv.setAttribute("id", "newtask");
@@ -54,7 +55,6 @@ namespace Datensammlung {
 
       Trashbin.addEventListener("click", function () {
         this!.parentNode!.parentNode!.removeChild(this!.parentNode!);
-        taskArray1.pop();
     });
     
     let edit = document.createElement("button");
@@ -63,8 +63,7 @@ namespace Datensammlung {
     edit.innerHTML = "Edit";
 
     edit.addEventListener("click", function () {
-      this!.parentNode!.parentNode!.removeChild(this!.parentNode!);
-      taskArray1.pop();
+      wrap.style.setProperty("visibility", "visible");
     });
 
  if(taskArray1[4] == "on"){ //Doesnt work yet
