@@ -9,7 +9,7 @@ namespace Datensammlung {
 
     } 
 
-    let taskArray1: String [] = []; 
+    let taskArray1: String [] = ["hello", "good"]; 
     
 
   function getData() {
@@ -34,9 +34,12 @@ namespace Datensammlung {
     }
    let wrap = <HTMLElement> document.querySelector("#wrapper"); 
   
+   let Trashbin = document.createElement("button");
+    Trashbin.setAttribute("id","trash");
 
-   document.querySelector("#bye")?.addEventListener("click",function(){
-   
+   Trashbin.addEventListener("click",function(){  
+    this!.parentNode!.parentNode!.removeChild(this!.parentNode!);
+        taskArray1.pop();
    });
    
    document.querySelector("#add")?.addEventListener("click",function(){
@@ -49,17 +52,19 @@ namespace Datensammlung {
     // wrap.style.setProperty("visibility", "hidden"); 
     getData();
     console.log("taskArray1: " + taskArray1); 
-    document.createElement("div").setAttribute("id", "tasknew");
-    document.createElement("p"); 
-    
-    
 
+    let newdiv = document.createElement("div");
+    newdiv.setAttribute("id", "newtask");
+    document.getElementById("div1")!.appendChild(newdiv);
+       
    
    });
    
    document.querySelector("#box")?.addEventListener("click",function(){
     
    });
+
+
 
 
     /*

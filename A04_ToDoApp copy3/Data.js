@@ -1,7 +1,7 @@
 "use strict";
 var Datensammlung;
 (function (Datensammlung) {
-    let taskArray1 = [];
+    let taskArray1 = ["hello", "good"];
     function getData() {
         const form = document.querySelector('#form1');
         form.onsubmit = () => {
@@ -19,7 +19,11 @@ var Datensammlung;
         };
     }
     let wrap = document.querySelector("#wrapper");
-    document.querySelector("#bye")?.addEventListener("click", function () {
+    let Trashbin = document.createElement("button");
+    Trashbin.setAttribute("id", "trash");
+    Trashbin.addEventListener("click", function () {
+        this.parentNode.parentNode.removeChild(this.parentNode);
+        taskArray1.pop();
     });
     document.querySelector("#add")?.addEventListener("click", function () {
         wrap.style.setProperty("visibility", "visible");
@@ -28,8 +32,9 @@ var Datensammlung;
         // wrap.style.setProperty("visibility", "hidden"); 
         getData();
         console.log("taskArray1: " + taskArray1);
-        document.createElement("div").setAttribute("id", "tasknew");
-        document.createElement("p");
+        let newdiv = document.createElement("div");
+        newdiv.setAttribute("id", "newtask");
+        document.getElementById("div1").appendChild(newdiv);
     });
     document.querySelector("#box")?.addEventListener("click", function () {
     });
