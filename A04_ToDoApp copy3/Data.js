@@ -19,6 +19,7 @@ var Datensammlung;
         };
     }
     let wrap = document.querySelector("#wrapper");
+    let div1 = document.querySelector("#task1");
     let Trashbin = document.createElement("button");
     Trashbin.setAttribute("id", "trash");
     Trashbin.addEventListener("click", function () {
@@ -27,12 +28,13 @@ var Datensammlung;
     });
     document.querySelector("#add")?.addEventListener("click", function () {
         wrap.style.setProperty("visibility", "visible");
+        (document.createElement('button'));
     });
     document.querySelector("#add2")?.addEventListener("click", function () {
         // wrap.style.setProperty("visibility", "hidden"); 
         getData();
         console.log("taskArray1: " + taskArray1);
-        let newdiv = document.createElement("div");
+        let newdiv = document.createElement("div"); // nothing gets added
         newdiv.setAttribute("id", "newtask");
         document.getElementById("div1").appendChild(newdiv);
     });
