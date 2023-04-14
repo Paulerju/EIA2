@@ -1,14 +1,5 @@
 namespace Datensammlung {
 
-    /* export interface Aufgabe {
-         taskname: string;
-         date: string;
-         comment: string;
-         person: Selection[];
-         progress: boolean;
- 
-     } */
-
     let taskArray1: String[] = [];
     function getData(): String[] {
 
@@ -26,9 +17,6 @@ namespace Datensammlung {
         taskArray = [text0, text1, text2, text3, text4];
         console.log("getData: " + taskArray);
         taskArray1 = taskArray; // why isnt this working?
-       
-        taskArray1 = taskArray;
-        console.log("in: " + taskArray1);
         return taskArray1;
     }; 
 
@@ -40,7 +28,7 @@ namespace Datensammlung {
     });
     
     document.querySelector("#add2")!.addEventListener("click", function (e) {
-         wrap.style.setProperty("visibility", "hidden"); 
+        // wrap.style.setProperty("visibility", "hidden"); 
       getData();
       let newdiv = document.createElement("div");
       newdiv.setAttribute("id", "newtask");
@@ -60,14 +48,15 @@ namespace Datensammlung {
         this!.parentNode!.parentNode!.removeChild(this!.parentNode!);
         taskArray1.pop();
     });
-
+    
     let edit = document.createElement("button");
     edit.setAttribute("id", "edit");
     newP.appendChild(edit);
     edit.innerHTML = "Edit";
 
     edit.addEventListener("click", function () {
-        wrap.style.setProperty("visibility", "visible");
+      this!.parentNode!.parentNode!.removeChild(this!.parentNode!);
+      taskArray1.pop();
     });
 
  if(taskArray1[4] == "on"){ //Doesnt work yet

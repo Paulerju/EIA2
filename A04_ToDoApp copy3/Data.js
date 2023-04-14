@@ -58,7 +58,7 @@ var Datensammlung;
         edit.addEventListener("click", function () {
             wrap.style.setProperty("visibility", "visible");
         });
-        if (taskArray1[4] == "on") { //Doesnt work yet
+        if (taskArray1[4] == "on") { //Doesnt work yet, should change color
             newP.style.setProperty("background-color:", " rgb(0, 166, 64)");
         }
     });
