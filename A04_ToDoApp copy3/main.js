@@ -15,7 +15,7 @@ var ToDO2;
         wrap.style.setProperty("visibility", "visible");
     });
     document.querySelector("#add2")?.addEventListener("click", function () {
-        wrap.style.setProperty("visibility", "hidden");
+        // wrap.style.setProperty("visibility", "hidden"); 
     });
     document.querySelector("#box")?.addEventListener("click", function () {
     });

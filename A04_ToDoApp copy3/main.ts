@@ -7,7 +7,9 @@ namespace ToDO2 {
       Quellen: <>
       */
 
+     
   let wrap = <HTMLElement> document.querySelector("#wrapper"); 
+  
 
 document.querySelector("#bye")?.addEventListener("click",function(){
 
@@ -20,12 +22,14 @@ document.querySelector("#add")?.addEventListener("click",function(){
 });
 
 document.querySelector("#add2")?.addEventListener("click",function(){
-  wrap.style.setProperty("visibility", "hidden"); 
+ // wrap.style.setProperty("visibility", "hidden"); 
+ 
   
 
 });
 
 document.querySelector("#box")?.addEventListener("click",function(){
-
+ 
 });
+
 }

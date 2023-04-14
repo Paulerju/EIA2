@@ -16,37 +16,37 @@
     <h1> Aufgaben Liste </h1>
     <div id="div1">
         <div id="task1">
-            <p> <input type="checkbox" name="" id="taskbox">
-                Klo putzen bis zum 23.03.23 | Annika</p>
+            <p>Klo putzen bis zum 23.03.23 | Annika</p>
             <p>Kommentar:</p>
 
         </div>
-        <div id="task2">
-
-        </div>
+       
     </div>
     <button id="add"> + Hinzufügen </button>
 
 
 
     <div id="wrapper">
-        <form action="" id="form1">
+        <form id="form1">
             <fieldset>
-            <input id="taskname" type="text" name="taskname" value="Überschrift"> <br>
-            <input id="date" type="text" name="date" value="Datum"> <br>
-            <input id="comment" type="textarea" name="comment" value="Kommentar"> <br>
-            <select name="Person" id="person"> <br>
-                <option value=" "> --please choose an option-- </option> <br>
-                <option id="one" value="Jesika">Jesika</option>
-                <option value="Oliver">Oliver</option>
-                <option value="Annika">Annika</option> <br>
+                <label> Aufgabe: </label>
+                <input id="taskn" type="text" name="taskname"> <br>
+                <label> Bis wann: </label>
+                <input id="date" type="text" name="date"> <br>
+                <label> Kommentar: </label>
+                <input id="comment" type="textarea" name="comment"> <br>
+                <select name="Person" id="person"> <br>
+                    <option value=" "> --please choose an option-- </option> <br>
+                    <option id="one" value="Jesika">Jesika</option>
+                    <option value="Oliver">Oliver</option>
+                    <option value="Annika">Annika</option> <br>
+                </select>
+                <br>
+                <p> <input type="checkbox" id="box" name="box"> In Bearbeitung</p> <br>
+                <button id="bye">delete</button>
+                <button id="add2">add</button>
             </fieldset>
         </form>
-        </select>
-        <br>
-        <p> <input type="checkbox" id="box"> In Bearbeitung</p> <br>
-        <button id="bye">delete</button>
-        <button id="add2">add</button>
     </div>
 </body>
 
