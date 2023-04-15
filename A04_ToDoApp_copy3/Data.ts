@@ -65,13 +65,6 @@ namespace Datensammlung {
     edit.addEventListener("click", function () {
       wrap.style.setProperty("visibility", "visible");
     });
-
- if(taskArray1[4] == "on"){ //Doesnt work yet
-            newP.style.setProperty( "background-color:"," rgb(0, 166, 64)");
-        }
     });
-
-    //document.getElementbyId(oder was anderes).Classlist.add("farbegrün) Add color change if activated
-
 
 }
