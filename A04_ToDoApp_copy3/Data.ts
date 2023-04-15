@@ -71,4 +71,7 @@ namespace Datensammlung {
         }
     });
 
+    //document.getElementbyId(oder was anderes).Classlist.add("farbegrün) Add color change if activated
+
+
 }
