@@ -5,6 +5,7 @@ body {
 }
 h1{
     margin-left: 20px;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 
@@ -63,3 +64,4 @@ input[type="checkbox"] {
 div{
     background-color: rgb(204, 237, 237);
 }
+
