@@ -4,7 +4,7 @@ namespace Datensammlung {
       Aufgabe: <Aufgabe 4 ToDo>
       Name: <Judith Pauler>
       Matrikel: <272240>
-      Datum: <14.04.23>
+      Datum: <22.04.23>
       Quellen: <>
       */
 
@@ -35,7 +35,7 @@ namespace Datensammlung {
       // new stuff?
       let offer:string = await response.text();
       console.log(offer);
-      taskArray1 = JSON.parse(offer);
+      taskArray1 = JSON.parse(offer); //In string umwandeln?
   }
 
  communicate("Datainput.json");
