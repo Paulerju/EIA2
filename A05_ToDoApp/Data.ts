@@ -32,6 +32,10 @@ namespace Datensammlung {
     async function communicate(_url: RequestInfo): Promise<void> {
       let response: Response = await fetch(_url);
       console.log("Response", response);
+      // new stuff?
+      let offer:string = await response.text();
+      console.log(offer);
+      taskArray1 = JSON.parse(offer);
   }
 
  communicate("Datainput.json");
@@ -39,11 +43,7 @@ namespace Datensammlung {
  let firstp = document.createElement("p");
  document.querySelector("#div1")?.appendChild(firstp);
  firstp.innerHTML =""  ;
- 
- async function getD(_url: RequestInfo): Promise<void> {
-  let n: Text = new Text(String) = await fetch(_url);
 
-}
 
     let wrap = <HTMLElement>document.querySelector("#wrapper");
 

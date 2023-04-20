@@ -28,15 +28,16 @@ var Datensammlung;
     async function communicate(_url) {
         let response = await fetch(_url);
         console.log("Response", response);
+        // new stuff?
+        let offer = await response.text();
+        console.log(offer);
+        taskArray1 = JSON.parse(offer);
     }
     communicate("Datainput.json");
     console.log(communicate);
     let firstp = document.createElement("p");
     document.querySelector("#div1")?.appendChild(firstp);
     firstp.innerHTML = "";
-    async function getD(_url) {
-        let n = new Text(String) = await fetch(_url);
-    }
     let wrap = document.querySelector("#wrapper");
     document.querySelector("#add").addEventListener("click", function () {
         wrap.style.setProperty("visibility", "visible");
