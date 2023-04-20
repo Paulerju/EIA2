@@ -1,0 +1,65 @@
+body {
+    background-color: cadetblue;
+    margin-left: 20px;
+
+}
+h1{
+    margin-left: 20px;
+}
+
+
+
+
+#wrapper {
+    background-color: rgb(227, 244, 243);
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 250px;
+    visibility: hidden;
+}
+
+#bye {
+    width: 100px;
+    height: 50px;
+}
+
+#add2 {
+    width: 100px;
+    height: 50px;
+}
+
+h1{
+    color: aliceblue;
+}
+
+#taskname{
+    position: absolute;
+
+    margin-bottom: 20px;
+}
+#date{
+    position: relative;
+    margin-top: 20px;
+}
+#comment{
+    position: relative;
+    margin-top: 20px;
+}
+#person{
+    position: relative;
+    margin-top: 20px;
+}
+
+input[type="checkbox"] {
+    width: 25px;                       
+    height: 25px;                        
+    clip-path: circle(46% at 50% 50%);  
+  }
+#add{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+div{
+    background-color: rgb(204, 237, 237);
+}

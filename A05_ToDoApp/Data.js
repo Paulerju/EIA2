@@ -25,6 +25,18 @@ var Datensammlung;
         return taskArray1;
     }
     ;
+    async function communicate(_url) {
+        let response = await fetch(_url);
+        console.log("Response", response);
+    }
+    communicate("Datainput.json");
+    console.log(communicate);
+    let firstp = document.createElement("p");
+    document.querySelector("#div1")?.appendChild(firstp);
+    firstp.innerHTML = "";
+    async function getD(_url) {
+        let n = new Text(String) = await fetch(_url);
+    }
     let wrap = document.querySelector("#wrapper");
     document.querySelector("#add").addEventListener("click", function () {
         wrap.style.setProperty("visibility", "visible");
