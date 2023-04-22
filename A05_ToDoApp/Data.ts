@@ -10,7 +10,7 @@ namespace Datensammlung {
 
     let taskArray1: String[] = [];
 
-    let form: HTMLFormElement; 
+    let form: HTMLFormElement = document.querySelector('#form1')!; 
     
    export interface Datainput  {
      [key: string]: FormDataEntryValue;
@@ -18,7 +18,7 @@ namespace Datensammlung {
 
     function getData(): String[] {
 
-        let form: HTMLFormElement = document.querySelector('#form1')!;
+    
         let taskArray: String[];
 
         let formData = new FormData(form);
@@ -48,23 +48,18 @@ namespace Datensammlung {
       let wrap = <HTMLElement>document.querySelector("#wrapper");
 
      window.addEventListener('load', handleLoad);
+
+     
    async function handleLoad(_event: Event): Promise<void> {
 
-     let response: Response = await fetch("Datainput.json");
-     let offer: string = await response.text();
-     let data: Datainput = JSON.parse(offer);
-   //  generateContent();  müssen die Daten einzeln noch einfügen (Data)
-
      let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#add2"); 
-     console.log("Submit"+submit); 
      submit.addEventListener("click", sendTask);
     } 
 
-   async function sendTask(_event: Event): Promise<void> {
-      console.log("Task send"); // Somehow edits the Task instead??
+    async function sendTask(_event:Event): Promise<void> { //versendet noch nicht
       let formData: FormData = new FormData(form);
       let query: URLSearchParams = new URLSearchParams(<any>formData);
-      await fetch("main.html"+ query.toString());
+      await fetch("main.html"+ query.toString()); 
       alert("Task Submited!");
     }
 

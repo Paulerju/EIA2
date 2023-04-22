@@ -9,10 +9,9 @@ var Datensammlung;
     Quellen: <>
     */
     let taskArray1 = [];
-    let form;
+    let form = document.querySelector('#form1');
     ;
     function getData() {
-        let form = document.querySelector('#form1');
         let taskArray;
         let formData = new FormData(form);
         console.log(formData);
@@ -40,16 +39,10 @@ var Datensammlung;
     let wrap = document.querySelector("#wrapper");
     window.addEventListener('load', handleLoad);
     async function handleLoad(_event) {
-        let response = await fetch("Datainput.json");
-        let offer = await response.text();
-        let data = JSON.parse(offer);
-        //  generateContent();  müssen die Daten einzeln noch einfügen (Data)
         let submit = document.querySelector("#add2");
-        console.log("Submit" + submit);
         submit.addEventListener("click", sendTask);
     }
     async function sendTask(_event) {
-        console.log("Task send"); // Somehow edits the Task instead??
         let formData = new FormData(form);
         let query = new URLSearchParams(formData);
         await fetch("main.html" + query.toString());
