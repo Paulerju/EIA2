@@ -11,9 +11,17 @@ namespace Datensammlung {
     let taskArray1: String[] = [];
 
     let form: HTMLFormElement = document.querySelector('#form1')!; 
+
+    export interface Tasks {
+      taskname: string; 
+      date: string; 
+      comment: string; 
+      person: string; 
+      box: string; 
+    }
     
    export interface Datainput  {
-     [key: string]: FormDataEntryValue;
+     [key: string]: Tasks[];
     };
 
     function getData(): String[] {
@@ -72,7 +80,7 @@ namespace Datensammlung {
       console.log("Response", response);
       console.log("before"+offer);
       document.querySelector("#div1")!.innerHTML = "Aufgabe: "+ offer; //+ "  bis zum: "+ gotdata["date"]+ "  Kommentar: "+ gotdata["comment"]+ "  Wird gemacht von: "+ gotdata["person"];
-    
+      runJson(gotdata);
   }
     communicate("Datainput.json");
 
@@ -100,5 +108,55 @@ namespace Datensammlung {
     Trashbin.addEventListener("click", function () {
       this!.parentNode!.parentNode!.removeChild(this!.parentNode!);
   });
+
+    async function runJson(_data: Datainput): Promise <void>{
+
+   for(let i = 0; i < _data.input.length; i++ ){
+
+
+    }
+
+
+  }; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
