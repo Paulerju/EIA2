@@ -9,6 +9,7 @@ namespace Datensammlung {
       */
 
     let taskArray1: String[] = [];
+
     let form: HTMLFormElement; 
     
    export interface Datainput  {
@@ -60,7 +61,7 @@ namespace Datensammlung {
     } 
 
    async function sendTask(_event: Event): Promise<void> {
-      console.log("Task send");
+      console.log("Task send"); // Somehow edits the Task instead??
       let formData: FormData = new FormData(form);
       let query: URLSearchParams = new URLSearchParams(<any>formData);
       await fetch("main.html"+ query.toString());
@@ -70,7 +71,7 @@ namespace Datensammlung {
     async function communicate(_url: RequestInfo): Promise<void> {
       let response: Response = await fetch(_url);
       let offer: string= await response.text();
-      let gotdata: Datainput = JSON.parse(offer);//In string umwandeln?
+      let gotdata: Datainput = JSON.parse(offer);
       // gotdata is empty, offer is a string, cant read the stuff out
       console.log("this"+gotdata);
       console.log("Response", response);

@@ -49,7 +49,7 @@ var Datensammlung;
         submit.addEventListener("click", sendTask);
     }
     async function sendTask(_event) {
-        console.log("Task send");
+        console.log("Task send"); // Somehow edits the Task instead??
         let formData = new FormData(form);
         let query = new URLSearchParams(formData);
         await fetch("main.html" + query.toString());
@@ -58,7 +58,7 @@ var Datensammlung;
     async function communicate(_url) {
         let response = await fetch(_url);
         let offer = await response.text();
-        let gotdata = JSON.parse(offer); //In string umwandeln?
+        let gotdata = JSON.parse(offer);
         // gotdata is empty, offer is a string, cant read the stuff out
         console.log("this" + gotdata);
         console.log("Response", response);
