@@ -9,6 +9,8 @@ var Datensammlung;
     Quellen: <>
     */
     let taskArray1 = [];
+    let form;
+    ;
     function getData() {
         let form = document.querySelector('#form1');
         let taskArray;
@@ -25,16 +27,36 @@ var Datensammlung;
         return taskArray1;
     }
     ;
+    async function handleLoade(_event) {
+        let response = await fetch("Datainput.json");
+        let offer = await response.text();
+        let data = JSON.parse(offer);
+        generateContent(data); // müssen die Daten einzeln noch einfügen
+        let submit = document.querySelector("#add2");
+        console.log("Submit" + submit);
+        submit.addEventListener("click", sendTask);
+    }
+    handleLoade();
+    async function sendTask(_event) {
+        console.log("Task send");
+        let formData = new FormData(form);
+        let query = new URLSearchParams(formData);
+        await fetch("main.html" + query.toString());
+        alert("Task Submited!");
+    }
     async function communicate(_url) {
         let response = await fetch(_url);
         console.log("Response", response);
-        // new stuff?
         let offer = await response.text();
-        console.log(offer);
-        taskArray1 = JSON.parse(offer); //In string umwandeln?
+        console.log("before" + offer);
+        let gotdata = JSON.parse(offer); //In string umwandeln?
+        // gotdata is empty, offer is a string, cant read the stuff out
+        console.log("this" + gotdata);
+        // document.querySelector("#div1")!.innerHTML = "Aufgabe: "+ offer["taskname"] + "  bis zum: "+ gotdata["date"]+ "  Kommentar: "+ gotdata["comment"]+ "  Wird gemacht von: "+ gotdata["person"];
     }
+    console.log("Start");
     communicate("Datainput.json");
-    console.log(communicate);
+    console.log("Ende");
     let firstp = document.createElement("p");
     document.querySelector("#div1")?.appendChild(firstp);
     firstp.innerHTML = "";

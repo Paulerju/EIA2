@@ -9,6 +9,12 @@ namespace Datensammlung {
       */
 
     let taskArray1: String[] = [];
+    let form: HTMLFormElement; 
+    
+    interface Datainput  {
+     [key: string]: FormDataEntryValue;
+    };
+
 
     function getData(): String[] {
 
@@ -29,17 +35,42 @@ namespace Datensammlung {
         return taskArray1;
     }; 
 
+   async function handleLoade(_event: Event): Promise<void> {
+
+     let response: Response = await fetch("Datainput.json");
+     let offer: string = await response.text();
+     let data: Datainput = JSON.parse(offer);
+     generateContent(data); // müssen die Daten einzeln noch einfügen
+
+     let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#add2"); 
+     console.log("Submit"+submit); 
+     submit.addEventListener("click", sendTask);
+    } 
+    handleLoade();
+
+   async function sendTask(_event: Event): Promise<void> {
+      console.log("Task send");
+      let formData: FormData = new FormData(form);
+      let query: URLSearchParams = new URLSearchParams(<any>formData);
+      await fetch("main.html"+ query.toString());
+      alert("Task Submited!");
+    }
+
     async function communicate(_url: RequestInfo): Promise<void> {
       let response: Response = await fetch(_url);
       console.log("Response", response);
-      // new stuff?
-      let offer:string = await response.text();
-      console.log(offer);
-      taskArray1 = JSON.parse(offer); //In string umwandeln?
+      let offer: string= await response.text();
+      console.log("before"+offer);
+      let gotdata: Datainput = JSON.parse(offer);//In string umwandeln?
+      // gotdata is empty, offer is a string, cant read the stuff out
+      console.log("this"+gotdata);
+     // document.querySelector("#div1")!.innerHTML = "Aufgabe: "+ offer["taskname"] + "  bis zum: "+ gotdata["date"]+ "  Kommentar: "+ gotdata["comment"]+ "  Wird gemacht von: "+ gotdata["person"];
+    
   }
 
+  console.log("Start");
  communicate("Datainput.json");
- console.log(communicate);
+ console.log("Ende");
  let firstp = document.createElement("p");
  document.querySelector("#div1")?.appendChild(firstp);
  firstp.innerHTML =""  ;
