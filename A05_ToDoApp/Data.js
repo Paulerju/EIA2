@@ -63,7 +63,7 @@ var Datensammlung;
         console.log("this" + gotdata);
         console.log("Response", response);
         console.log("before" + offer);
-        document.querySelector("#div1").innerHTML = "Aufgabe: " + offer + "  bis zum: " + gotdata["date"] + "  Kommentar: " + gotdata["comment"] + "  Wird gemacht von: " + gotdata["person"];
+        document.querySelector("#div1").innerHTML = "Aufgabe: " + offer; //+ "  bis zum: "+ gotdata["date"]+ "  Kommentar: "+ gotdata["comment"]+ "  Wird gemacht von: "+ gotdata["person"];
     }
     communicate("Datainput.json");
     document.querySelector("#add").addEventListener("click", function () {
