@@ -15,7 +15,6 @@ namespace Datensammlung {
      [key: string]: FormDataEntryValue;
     };
 
-
     function getData(): String[] {
 
         let form: HTMLFormElement = document.querySelector('#form1')!;
@@ -35,7 +34,20 @@ namespace Datensammlung {
         return taskArray1;
     }; 
 
-   async function handleLoade(_event: Event): Promise<void> {
+      let newdiv = document.createElement("div");
+      newdiv.setAttribute("id", "newtask");
+      let newP = document.createElement("p"); 
+      newdiv.setAttribute("id", "newp");
+      let Trashbin = document.createElement("button");
+      Trashbin.setAttribute("id", "trash");
+      Trashbin.innerHTML = "Delete";
+      let edit = document.createElement("button");
+      edit.setAttribute("id", "edit");
+      edit.innerHTML = "Edit";
+      let wrap = <HTMLElement>document.querySelector("#wrapper");
+
+     window.addEventListener('load', handleLoad);
+   async function handleLoad(_event: Event): Promise<void> {
 
      let response: Response = await fetch("Datainput.json");
      let offer: string = await response.text();
@@ -46,7 +58,6 @@ namespace Datensammlung {
      console.log("Submit"+submit); 
      submit.addEventListener("click", sendTask);
     } 
-    handleLoade();
 
    async function sendTask(_event: Event): Promise<void> {
       console.log("Task send");
@@ -58,25 +69,18 @@ namespace Datensammlung {
 
     async function communicate(_url: RequestInfo): Promise<void> {
       let response: Response = await fetch(_url);
-      console.log("Response", response);
       let offer: string= await response.text();
-      console.log("before"+offer);
       let gotdata: Datainput = JSON.parse(offer);//In string umwandeln?
       // gotdata is empty, offer is a string, cant read the stuff out
       console.log("this"+gotdata);
-     // document.querySelector("#div1")!.innerHTML = "Aufgabe: "+ offer["taskname"] + "  bis zum: "+ gotdata["date"]+ "  Kommentar: "+ gotdata["comment"]+ "  Wird gemacht von: "+ gotdata["person"];
+      console.log("Response", response);
+      console.log("before"+offer);
+      document.querySelector("#div1")!.innerHTML = "Aufgabe: "+ offer+ "  bis zum: "+ gotdata["date"]+ "  Kommentar: "+ gotdata["comment"]+ "  Wird gemacht von: "+ gotdata["person"];
     
   }
-
-  console.log("Start");
- communicate("Datainput.json");
- console.log("Ende");
- let firstp = document.createElement("p");
- document.querySelector("#div1")?.appendChild(firstp);
- firstp.innerHTML =""  ;
+    communicate("Datainput.json");
 
 
-    let wrap = <HTMLElement>document.querySelector("#wrapper");
 
     document.querySelector("#add")!.addEventListener("click", function () {
         wrap.style.setProperty("visibility", "visible");
@@ -86,32 +90,19 @@ namespace Datensammlung {
     document.querySelector("#add2")!.addEventListener("click", function (e) {
       wrap.style.setProperty("visibility", "hidden"); 
       getData();
-      let newdiv = document.createElement("div");
-      newdiv.setAttribute("id", "newtask");
-      let newP = document.createElement("p"); 
-      newdiv.setAttribute("id", "newp");
       document.getElementById("div1")!.appendChild(newdiv);
       document.querySelector("#div1")!.appendChild(newP);
       newP.innerHTML = "Aufgabe: "+ taskArray1[0] + "  bis zum: "+ taskArray1[1]+ "  Kommentar: "+ taskArray1[2]+ "  Wird gemacht von: "+ taskArray1[3];
       e.preventDefault();
-
-      let Trashbin = document.createElement("button");
-      Trashbin.setAttribute("id", "trash");
-      newP.appendChild(Trashbin);
-      Trashbin.innerHTML = "Delete";
-
-      Trashbin.addEventListener("click", function () {
-        this!.parentNode!.parentNode!.removeChild(this!.parentNode!);
+      newP.appendChild(Trashbin); 
+      newP.appendChild(edit);
     });
-    
-    let edit = document.createElement("button");
-    edit.setAttribute("id", "edit");
-    newP.appendChild(edit);
-    edit.innerHTML = "Edit";
 
     edit.addEventListener("click", function () {
       wrap.style.setProperty("visibility", "visible");
     });
-    });
+    Trashbin.addEventListener("click", function () {
+      this!.parentNode!.parentNode!.removeChild(this!.parentNode!);
+  });
 
 }
