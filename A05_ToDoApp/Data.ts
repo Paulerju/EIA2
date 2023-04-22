@@ -56,7 +56,7 @@ namespace Datensammlung {
      submit.addEventListener("click", sendTask);
     } 
 
-    async function sendTask(_event:Event): Promise<void> { //versendet noch nicht
+    async function sendTask(_event:Event): Promise<void> { //link zum versenden funktioniert nicht 
       let formData: FormData = new FormData(form);
       let query: URLSearchParams = new URLSearchParams(<any>formData);
       await fetch("main.html"+ query.toString()); 
