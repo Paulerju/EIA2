@@ -6,7 +6,7 @@ var Datensammlung;
     Name: <Judith Pauler>
     Matrikel: <272240>
     Datum: <22.04.23>
-    Quellen: <>
+    Quellen: <Madeleine Hansen>
     */
     let taskArray1 = [];
     let form = document.querySelector('#form1');
@@ -38,7 +38,7 @@ var Datensammlung;
     edit.innerHTML = "Edit";
     let wrap = document.querySelector("#wrapper");
     window.addEventListener('load', handleLoad);
-    async function handleLoad(_event) {
+    function handleLoad(_event) {
         let submit = document.querySelector("#add2");
         submit.addEventListener("click", sendTask);
     }

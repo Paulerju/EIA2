@@ -5,14 +5,14 @@ namespace Datensammlung {
       Name: <Judith Pauler>
       Matrikel: <272240>
       Datum: <22.04.23>
-      Quellen: <>
+      Quellen: <Madeleine Hansen>
       */
 
     let taskArray1: String[] = [];
 
     let form: HTMLFormElement = document.querySelector('#form1')!; 
 
-    export interface Tasks {
+     interface Tasks {
       taskname: string; 
       date: string; 
       comment: string; 
@@ -20,7 +20,7 @@ namespace Datensammlung {
       box: string; 
     }
     
-   export interface Datainput  {
+    interface Datainput  {
      [key: string]: Tasks[];
     };
 
@@ -58,7 +58,7 @@ namespace Datensammlung {
      window.addEventListener('load', handleLoad);
 
      
-   async function handleLoad(_event: Event): Promise<void> {
+    function handleLoad(_event: Event) {
 
      let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#add2"); 
      submit.addEventListener("click", sendTask);
@@ -83,8 +83,6 @@ namespace Datensammlung {
       runJson(gotdata);
   }
     communicate("Datainput.json");
-
-
 
     document.querySelector("#add")!.addEventListener("click", function () {
         wrap.style.setProperty("visibility", "visible");
