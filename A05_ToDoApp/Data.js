@@ -43,7 +43,7 @@ var Datensammlung;
         let response = await fetch("Datainput.json");
         let offer = await response.text();
         let data = JSON.parse(offer);
-        generateContent(); // müssen die Daten einzeln noch einfügen (Data)
+        //  generateContent();  müssen die Daten einzeln noch einfügen (Data)
         let submit = document.querySelector("#add2");
         console.log("Submit" + submit);
         submit.addEventListener("click", sendTask);
