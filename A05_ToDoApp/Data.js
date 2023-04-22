@@ -57,6 +57,7 @@ var Datensammlung;
         console.log("Response", response);
         console.log("before" + offer);
         document.querySelector("#div1").innerHTML = "Aufgabe: " + offer; //+ "  bis zum: "+ gotdata["date"]+ "  Kommentar: "+ gotdata["comment"]+ "  Wird gemacht von: "+ gotdata["person"];
+        runJson(gotdata);
     }
     communicate("Datainput.json");
     document.querySelector("#add").addEventListener("click", function () {
@@ -78,5 +79,10 @@ var Datensammlung;
     Trashbin.addEventListener("click", function () {
         this.parentNode.parentNode.removeChild(this.parentNode);
     });
+    async function runJson(_data) {
+        for (let i = 0; i < _data.input.length; i++) {
+        }
+    }
+    ;
 })(Datensammlung || (Datensammlung = {}));
 //# sourceMappingURL=Data.js.map
