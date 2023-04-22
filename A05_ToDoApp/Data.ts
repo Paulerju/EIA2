@@ -11,7 +11,7 @@ namespace Datensammlung {
     let taskArray1: String[] = [];
     let form: HTMLFormElement; 
     
-    interface Datainput  {
+   export interface Datainput  {
      [key: string]: FormDataEntryValue;
     };
 
@@ -40,7 +40,7 @@ namespace Datensammlung {
      let response: Response = await fetch("Datainput.json");
      let offer: string = await response.text();
      let data: Datainput = JSON.parse(offer);
-     generateContent(data); // müssen die Daten einzeln noch einfügen
+     generateContent(); // müssen die Daten einzeln noch einfügen (Data)
 
      let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#add2"); 
      console.log("Submit"+submit); 
