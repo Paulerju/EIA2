@@ -62,14 +62,15 @@ namespace Datensammlung {
 
      let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#add2"); 
      submit.addEventListener("click", sendTask);
-    } 
+     communicate("Datainput.json");
+    };
 
     async function sendTask(_event:Event): Promise<void> { //link zum versenden funktioniert nicht 
       let formData: FormData = new FormData(form);
       let query: URLSearchParams = new URLSearchParams(<any>formData);
       await fetch("main.html"+ query.toString()); 
       alert("Task Submited!");
-    }
+    };
 
     async function communicate(_url: RequestInfo): Promise<void> {
       let response: Response = await fetch(_url);
@@ -79,14 +80,12 @@ namespace Datensammlung {
       console.log("this"+gotdata);
       console.log("Response", response);
       console.log("before"+offer);
-      document.querySelector("#div1")!.innerHTML = "Aufgabe: "+ offer; //+ "  bis zum: "+ gotdata["date"]+ "  Kommentar: "+ gotdata["comment"]+ "  Wird gemacht von: "+ gotdata["person"];
-      runJson(gotdata);
+      document.querySelector("#div1")!.innerHTML = "Aufgabe: "+ offer; 
   }
-    communicate("Datainput.json");
+
 
     document.querySelector("#add")!.addEventListener("click", function () {
         wrap.style.setProperty("visibility", "visible");
-
     });
     
     document.querySelector("#add2")!.addEventListener("click", function (e) {
@@ -95,66 +94,22 @@ namespace Datensammlung {
       document.getElementById("div1")!.appendChild(newdiv);
       document.querySelector("#div1")!.appendChild(newP);
       newP.innerHTML = "Aufgabe: "+ taskArray1[0] + "  bis zum: "+ taskArray1[1]+ "  Kommentar: "+ taskArray1[2]+ "  Wird gemacht von: "+ taskArray1[3];
-      e.preventDefault();
+      e.preventDefault(); 
       newP.appendChild(Trashbin); 
-      newP.appendChild(edit);
+      newP.appendChild(edit); 
     });
 
-    edit.addEventListener("click", function () {
+// await 
+    edit.addEventListener("click", async function () {
       wrap.style.setProperty("visibility", "visible");
     });
-    Trashbin.addEventListener("click", function () {
+
+    Trashbin.addEventListener("click", async function () {
       this!.parentNode!.parentNode!.removeChild(this!.parentNode!);
+      let formData: FormData = new FormData(form);
+      let query: URLSearchParams = new URLSearchParams(<any>formData);
+      await fetch("main.html"+ query.toString()); 
   });
-
-    async function runJson(_data: Datainput): Promise <void>{
-
-   for(let i = 0; i < _data.input.length; i++ ){
-
-
-    }
-
-
-  }; 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

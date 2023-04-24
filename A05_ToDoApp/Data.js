@@ -41,13 +41,16 @@ var Datensammlung;
     function handleLoad(_event) {
         let submit = document.querySelector("#add2");
         submit.addEventListener("click", sendTask);
+        communicate("Datainput.json");
     }
+    ;
     async function sendTask(_event) {
         let formData = new FormData(form);
         let query = new URLSearchParams(formData);
         await fetch("main.html" + query.toString());
         alert("Task Submited!");
     }
+    ;
     async function communicate(_url) {
         let response = await fetch(_url);
         let offer = await response.text();
@@ -56,10 +59,8 @@ var Datensammlung;
         console.log("this" + gotdata);
         console.log("Response", response);
         console.log("before" + offer);
-        document.querySelector("#div1").innerHTML = "Aufgabe: " + offer; //+ "  bis zum: "+ gotdata["date"]+ "  Kommentar: "+ gotdata["comment"]+ "  Wird gemacht von: "+ gotdata["person"];
-        runJson(gotdata);
+        document.querySelector("#div1").innerHTML = "Aufgabe: " + offer;
     }
-    communicate("Datainput.json");
     document.querySelector("#add").addEventListener("click", function () {
         wrap.style.setProperty("visibility", "visible");
     });
@@ -73,16 +74,15 @@ var Datensammlung;
         newP.appendChild(Trashbin);
         newP.appendChild(edit);
     });
-    edit.addEventListener("click", function () {
+    // await 
+    edit.addEventListener("click", async function () {
         wrap.style.setProperty("visibility", "visible");
     });
-    Trashbin.addEventListener("click", function () {
+    Trashbin.addEventListener("click", async function () {
         this.parentNode.parentNode.removeChild(this.parentNode);
+        let formData = new FormData(form);
+        let query = new URLSearchParams(formData);
+        await fetch("main.html" + query.toString());
     });
-    async function runJson(_data) {
-        for (let i = 0; i < _data.input.length; i++) {
-        }
-    }
-    ;
 })(Datensammlung || (Datensammlung = {}));
 //# sourceMappingURL=Data.js.map
