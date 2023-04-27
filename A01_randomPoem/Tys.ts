@@ -1,4 +1,4 @@
-namespace Poem {
+/*namespace Poem {
     /*
     Aufgabe: <Aufgabe 1 RandomPoem>
     Name: <Judith Pauler>
@@ -6,14 +6,14 @@ namespace Poem {
     Datum: <24.03.23>
     Quellen: <Kommilitonis mit denen Du zusammengearbeitet hast oder von denen Du dich inspirieren ließest>
     */
-
+/*
     let subjekte: string[] = ["Bellatrix", "Rodolphus", "Lucius", "James", "Snape", "Sirius"];
     let praedikate: string[] = ["braut", "liebt", "studiert", "hasst", "zaubert", "zerstört"];
     let objekte: string[] = ["Zaubertränke", "Pflanzen", "Lupin", "Hogwarts", "die Karte der Rumtreiber", "Deatheaters"];
 
-   /* let one: string[] = []; 
+   let one: string[] = []; 
     let two: string[] = []; 
-    let three: string[] = []; */
+    let three: string[] = []; 
 
    // console.log(subjekte);
    // console.log(praedikate);
@@ -56,4 +56,4 @@ namespace Poem {
     }
 
    // console.log(getVerse(subjekte, praedikate, objekte)); 
-}
+}*/

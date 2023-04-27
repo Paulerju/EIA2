@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+ 
+    <script src="Datainput.json"></script>
+    <script src="Data.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+    <h1> Aufgaben Liste </h1>
+    <div id="div1"> 
+            
+    </div>
+    <button id="add"> + Hinzufügen </button>
+
+
+
+    <div id="wrapper">
+        <form id="form1">
+            <fieldset>
+                <label> Aufgabe: </label>
+                <input id="taskn" type="text" name="taskname"> <br>
+                <label> Bis wann: </label>
+                <input id="date" type="text" name="date"> <br>
+                <label> Kommentar: </label>
+                <input id="comment" type="textarea" name="comment"> <br>
+                <select name="Person" id="person"> <br>
+                    <option value=" "> --please choose an option-- </option> <br>
+                    <option id="one" value="Jesika">Jesika</option>
+                    <option value="Oliver">Oliver</option>
+                    <option value="Annika">Annika</option> <br>
+                </select>
+                <br>
+                <p> <input type="checkbox" id="box" name="box"> In Bearbeitung</p> <br>
+                <button id="add2" type="submit">add</button>
+        
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>
