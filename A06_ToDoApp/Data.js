@@ -1,6 +1,6 @@
 "use strict";
-var Datensammlung;
-(function (Datensammlung) {
+var Datensammlung06;
+(function (Datensammlung06) {
     /*
     Aufgabe: <Aufgabe 4 ToDo>
     Name: <Judith Pauler>
@@ -54,10 +54,10 @@ var Datensammlung;
     async function sendTask(_event) {
         let formData = new FormData(form);
         let query = new URLSearchParams(formData);
-        await fetch("https://webuser.hs-furtwangen.de/~paulerju/Database/" + "?" + query.toString());
         query.set("command", "insert");
-        query.set("collection", "Data");
+        query.set("collection", "Tasks");
         query.set("data", JSON.stringify(json));
+        await fetch("https://webuser.hs-furtwangen.de/~paulerju/Database/" + "?" + query.toString()); //Send data to Databank
         alert("Task Submited!");
     }
     ;
@@ -65,7 +65,6 @@ var Datensammlung;
         let response = await fetch(_url);
         let offer = await response.text();
         let gotdata = JSON.parse(offer);
-        // gotdata is empty, offer is a string, cant read the stuff out
         console.log("this" + gotdata);
         console.log("Response", response);
         console.log("before" + offer);
@@ -94,5 +93,5 @@ var Datensammlung;
         let query = new URLSearchParams(formData);
         await fetch("main.html" + query.toString());
     });
-})(Datensammlung || (Datensammlung = {}));
+})(Datensammlung06 || (Datensammlung06 = {}));
 //# sourceMappingURL=Data.js.map

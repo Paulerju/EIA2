@@ -8,9 +8,6 @@ h1{
     font-family: 'Rajdhani', sans-serif;
 }
 
-
-
-
 #wrapper {
     background-color: rgb(227, 244, 243);
     margin-top: 20px;
@@ -24,7 +21,7 @@ h1{
     height: 50px;
 }
 
-#add2 {
+#add2, #update {
     width: 100px;
     height: 50px;
 }
@@ -63,10 +60,18 @@ input[type="checkbox"] {
 
 div{
     background-color: rgb(204, 237, 237);
+    width: auto;
 }
 
 #edit2{
     width: 100px;
     height: 50px;
+}
+
+@media screen and (min-weight: 1028px){
+div{
+    
+}
+    
 }
 

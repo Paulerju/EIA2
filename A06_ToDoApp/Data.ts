@@ -1,4 +1,4 @@
-namespace Datensammlung {
+namespace Datensammlung06 {
 
       /*
       Aufgabe: <Aufgabe 4 ToDo>
@@ -42,7 +42,7 @@ namespace Datensammlung {
         taskArray1 = taskArray; 
         return taskArray1;
     }; 
-
+    // Interface for JSON-Data
     interface FormDataJSON {
       [key: string]: FormDataEntryValue | FormDataEntryValue[];
     }
@@ -56,7 +56,6 @@ namespace Datensammlung {
         json[key] = values.length > 1 ? values : values[0];
       }
     
-
       let newdiv = document.createElement("div");
       newdiv.setAttribute("id", "newtask");
       let newP = document.createElement("p"); 
@@ -79,13 +78,13 @@ namespace Datensammlung {
      communicate("Datainput.json");
     };
 
-    async function sendTask(_event:Event): Promise<void> { //link zum versenden funktioniert nicht 
+    async function sendTask(_event:Event): Promise<void> { 
       let formData: FormData = new FormData(form);
       let query: URLSearchParams = new URLSearchParams(<any>formData);
-      await fetch("https://webuser.hs-furtwangen.de/~paulerju/Database/"+"?"+query.toString()); 
       query.set("command", "insert");
-      query.set("collection", "Data");
+      query.set("collection", "Tasks");
       query.set("data", JSON.stringify(json));
+      await fetch("https://webuser.hs-furtwangen.de/~paulerju/Database/"+"?"+query.toString());  //Send data to Databank
       alert("Task Submited!");
     };
 
@@ -93,13 +92,11 @@ namespace Datensammlung {
       let response: Response = await fetch(_url);
       let offer: string= await response.text();
       let gotdata: Datainput = JSON.parse(offer);
-      // gotdata is empty, offer is a string, cant read the stuff out
       console.log("this"+gotdata);
       console.log("Response", response);
       console.log("before"+offer);
       document.querySelector("#div1")!.innerHTML = "Aufgabe: "+ offer; 
-  }
-
+  } 
 
     document.querySelector("#add")!.addEventListener("click", function () {
         wrap.style.setProperty("visibility", "visible");
@@ -127,9 +124,5 @@ namespace Datensammlung {
       let query: URLSearchParams = new URLSearchParams(<any>formData);
       await fetch("main.html"+ query.toString()); 
   });
-
- 
-
-
 
 }
