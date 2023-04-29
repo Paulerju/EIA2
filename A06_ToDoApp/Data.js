@@ -80,6 +80,7 @@ var Datensammlung06;
     document.querySelector("#add2").addEventListener("click", function (e) {
         wrap.style.setProperty("visibility", "hidden");
         getData();
+        console.log(getData);
         document.getElementById("div1").appendChild(newdiv);
         document.querySelector("#div1").appendChild(newP);
         newP.innerHTML = "Aufgabe: " + taskArray1[0] + "  bis zum: " + taskArray1[1] + "  Kommentar: " + taskArray1[2] + "  Wird gemacht von: " + taskArray1[3];
@@ -87,13 +88,12 @@ var Datensammlung06;
         newP.appendChild(Trashbin);
         newP.appendChild(edit);
     });
-    document.querySelector("#update").addEventListener("click", async function (e) {
+    document.querySelector("#update").addEventListener("click", async function () {
         wrap.style.setProperty("visibility", "hidden");
         getData();
         document.getElementById("div1").appendChild(newdiv);
         document.querySelector("#div1").appendChild(newP);
         newP.innerHTML = "Aufgabe: " + taskArray1[0] + "  bis zum: " + taskArray1[1] + "  Kommentar: " + taskArray1[2] + "  Wird gemacht von: " + taskArray1[3];
-        e.preventDefault();
         let formData = new FormData(form);
         let query = new URLSearchParams(formData);
         query.set("command", "update");
