@@ -69,6 +69,10 @@ var Datensammlung06;
         console.log("Response", response);
         console.log("before" + offer);
         document.querySelector("#div1").innerHTML = "Aufgabe: " + offer;
+        document.getElementById("div1").appendChild(newdiv);
+        document.querySelector("#div1").appendChild(newP);
+        newP.appendChild(Trashbin);
+        newP.appendChild(edit);
     }
     document.querySelector("#add").addEventListener("click", function () {
         wrap.style.setProperty("visibility", "visible");
@@ -83,6 +87,21 @@ var Datensammlung06;
         newP.appendChild(Trashbin);
         newP.appendChild(edit);
     });
+    document.querySelector("#update").addEventListener("click", async function (e) {
+        wrap.style.setProperty("visibility", "hidden");
+        getData();
+        document.getElementById("div1").appendChild(newdiv);
+        document.querySelector("#div1").appendChild(newP);
+        newP.innerHTML = "Aufgabe: " + taskArray1[0] + "  bis zum: " + taskArray1[1] + "  Kommentar: " + taskArray1[2] + "  Wird gemacht von: " + taskArray1[3];
+        e.preventDefault();
+        let formData = new FormData(form);
+        let query = new URLSearchParams(formData);
+        query.set("command", "update");
+        query.set("collection", "Tasks");
+        query.set("id", "644a4b0dbe4cd");
+        //  query.set("data",taskArray1); turn taskArray1 to string
+        await fetch("https://webuser.hs-furtwangen.de/~paulerju/Database/" + "?" + query.toString());
+    });
     // await 
     edit.addEventListener("click", async function () {
         wrap.style.setProperty("visibility", "visible");
@@ -91,7 +110,11 @@ var Datensammlung06;
         this.parentNode.parentNode.removeChild(this.parentNode);
         let formData = new FormData(form);
         let query = new URLSearchParams(formData);
-        await fetch("main.html" + query.toString());
+        query.set("command", "delete");
+        query.set("collection", "Tasks");
+        query.set("id", "644a4b0dbe4cd");
+        await fetch("https://webuser.hs-furtwangen.de/~paulerju/Database/" + "?" + query.toString()); //Delete data with id: ...
+        alert("Task deleted!");
     });
 })(Datensammlung06 || (Datensammlung06 = {}));
 //# sourceMappingURL=Data.js.map
