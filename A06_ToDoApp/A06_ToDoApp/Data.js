@@ -41,12 +41,10 @@ var Datensammlung06;
     newdiv.setAttribute("id", "newtask");
     let newP = document.createElement("p");
     newdiv.setAttribute("id", "newp");
-    let Trashbin = document.createElement("button");
-    Trashbin.setAttribute("id", "trash");
-    Trashbin.innerHTML = "Delete";
     let edit = document.createElement("button");
     edit.setAttribute("id", "edit");
     edit.innerHTML = "Edit";
+    let activeID;
     let wrap = document.querySelector("#wrapper");
     window.addEventListener("load", handleLoad);
     async function handleLoad(_event) {
@@ -71,6 +69,7 @@ var Datensammlung06;
                 person: convertedValue["person"],
                 box: convertedValue["inprogress"],
             };
+            htmlTask.setAttribute("id", key);
             allTasks.push(task);
             htmlTask.innerHTML =
                 "Aufgabe: " +
@@ -81,28 +80,41 @@ var Datensammlung06;
                     task.comment +
                     "  Wird gemacht von: " +
                     task.person;
-            let Trashbin = document.createElement("button");
-            Trashbin.setAttribute("id", "trash");
-            Trashbin.innerHTML = "Delete";
+            let trashbin = document.createElement("button");
+            trashbin.setAttribute("id", "trash");
+            trashbin.innerHTML = "Delete";
+            trashbin.addEventListener("click", async function () {
+                let task = this.parentNode;
+                let query = new URLSearchParams(formData);
+                query.set("command", "delete");
+                query.set("collection", "Tasks");
+                query.set("id", task.id);
+                this.parentNode.parentNode.removeChild(this.parentNode);
+                let response = await fetch("https://webuser.hs-furtwangen.de/~paulerju/Database/" +
+                    "?" +
+                    query.toString()); //Delete data with id: ...
+                console.log(response);
+                if (response.ok) {
+                    alert("Task deleted!");
+                }
+            });
             let edit = document.createElement("button");
             edit.setAttribute("id", "edit");
             edit.innerHTML = "Edit";
-            htmlTask.appendChild(Trashbin);
+            htmlTask.appendChild(trashbin);
             htmlTask.appendChild(edit);
         });
         console.log(allTasks);
     }
     async function sendTask(_event) {
-        let formData = new FormData(form);
-        let query = new URLSearchParams(formData);
-        //
-        query.set("command", "insert");
-        query.set("collection", "Tasks");
-        query.set("data", JSON.stringify(json));
-        let response = await fetch("https://webuser.hs-furtwangen.de/~paulerju/Database/" +
-            "?" +
-            query.toString()); //Send data to Databank
-        alert("Task Submited!");
+        let task = getData();
+        let params = "?command=insert&collection=Tasks&data=" + JSON.stringify(task);
+        _event.preventDefault();
+        let response = await fetch("https://webuser.hs-furtwangen.de/~paulerju/Database/" + params); //Send data to Databank
+        if (response.ok) {
+            console.log(response);
+            alert("Task Submited!");
+        }
     }
     async function getTasks() {
         const params = "command=find&collection=Tasks";
@@ -113,12 +125,14 @@ var Datensammlung06;
     document.querySelector("#add").addEventListener("click", function () {
         wrap.style.setProperty("visibility", "visible");
     });
-    document.querySelector("#add2").addEventListener("click", function (e) {
+    document.querySelector("#add2").addEventListener("click", function () {
         wrap.style.setProperty("visibility", "hidden");
         let task = getData();
+        let htmlTask = document.createElement("p");
         document.getElementById("div1").appendChild(newdiv);
-        document.querySelector("#div1").appendChild(newP);
-        newP.innerHTML =
+        document.querySelector("#div1").appendChild(htmlTask);
+        allTasks.push(task);
+        htmlTask.innerHTML =
             "Aufgabe: " +
                 task.taskname +
                 "  bis zum: " +
@@ -127,32 +141,27 @@ var Datensammlung06;
                 task.comment +
                 "  Wird gemacht von: " +
                 task.person;
-        e.preventDefault();
-        newP.appendChild(Trashbin);
-        newP.appendChild(edit);
+        let trashbin = document.createElement("button");
+        trashbin.setAttribute("id", "trash");
+        trashbin.innerHTML = "Delete";
+        let edit = document.createElement("button");
+        edit.setAttribute("id", "edit");
+        edit.innerHTML = "Edit";
+        htmlTask.appendChild(trashbin);
+        htmlTask.appendChild(edit);
+        console.log(allTasks);
     });
     document
         .querySelector("#update")
         .addEventListener("click", async function (e) {
         wrap.style.setProperty("visibility", "hidden");
         let task = getData();
-        document.getElementById("div1").appendChild(newdiv);
-        document.querySelector("#div1").appendChild(newP);
-        newP.innerHTML =
-            "Aufgabe: " +
-                task.taskname +
-                "  bis zum: " +
-                task.date +
-                "  Kommentar: " +
-                task.comment +
-                "  Wird gemacht von: " +
-                task.person;
         e.preventDefault();
         let formData = new FormData(form);
         let query = new URLSearchParams(formData);
         query.set("command", "update");
         query.set("collection", "Tasks");
-        query.set("id", "644a4b0dbe4cd");
+        query.set("id", activeID);
         //  query.set("data",taskArray1); turn taskArray1 to string
         await fetch("https://webuser.hs-furtwangen.de/~paulerju/Database/" +
             "?" +
@@ -161,18 +170,6 @@ var Datensammlung06;
     // await
     edit.addEventListener("click", async function () {
         wrap.style.setProperty("visibility", "visible");
-    });
-    Trashbin.addEventListener("click", async function () {
-        this.parentNode.parentNode.removeChild(this.parentNode);
-        let formData = new FormData(form);
-        let query = new URLSearchParams(formData);
-        query.set("command", "delete");
-        query.set("collection", "Tasks");
-        query.set("id", "644a4b0dbe4cd");
-        await fetch("https://webuser.hs-furtwangen.de/~paulerju/Database/" +
-            "?" +
-            query.toString()); //Delete data with id: ...
-        alert("Task deleted!");
     });
 })(Datensammlung06 || (Datensammlung06 = {}));
 //# sourceMappingURL=Data.js.map
