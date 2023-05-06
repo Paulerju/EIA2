@@ -16,17 +16,22 @@ var Canvas;
         putText();
         drawT1();
     }
-    function drawBackground() {
+    function drawBackground(_position, _size) {
         console.log("Background");
         let gradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
         gradient.addColorStop(0, "lightblue");
         gradient.addColorStop(1, "white");
         crc2.fillStyle = gradient;
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
-        let x = Math.floor(Math.random() * (350 - 20 + 1) + 20);
+        let x = Math.floor(Math.random() * (250 - 20 + 1) + 20);
         let y = Math.floor(Math.random() * (200 - 20 + 1) + 20);
-        crc2.clearRect(x, 50, 25, 25);
-        crc2.strokeRect(250, y, 10, 10);
+        for (let i = 0; i < 8; i++) {
+            crc2.beginPath();
+            crc2.clearRect(x, y, 25, 25);
+            crc2.strokeRect(250, y, 10, 10);
+            crc2.fill();
+            crc2.closePath();
+        }
     }
     function drawT2(_position, _size) {
         console.log("T2");
@@ -68,7 +73,7 @@ var Canvas;
     }
     function drawCircle(_position, _size) {
         for (let i = 0; i < 500; i++) {
-            var x = Math.floor(Math.random() * _size.x);
+            let x = Math.floor(Math.random() * _size.x);
             let y = Math.floor(Math.random() * _size.y);
             let radius = Math.floor(Math.random() * 15);
             let r = Math.floor(Math.random() * 255);
@@ -82,8 +87,13 @@ var Canvas;
         }
     }
     function putText() {
-        crc2.fillText("Hello there", 50, 90);
-        crc2.strokeText("...here we are again", 100, 100);
+        let x1 = Math.floor(Math.random() * (100 - 20 + 1) + 20);
+        let y1 = Math.floor(Math.random() * (100 - 20 + 1) + 20);
+        let x = Math.floor(Math.random() * (100 - 20 + 1) + 20);
+        let y = Math.floor(Math.random() * (100 - 20 + 1) + 20);
+        crc2.fillStyle = "#00BFFF";
+        crc2.fillText("Hello there", x1, y1);
+        crc2.strokeText("...here we are again", x, y);
     }
     function drawT1() {
         console.log("T1");
