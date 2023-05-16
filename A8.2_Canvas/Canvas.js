@@ -4,7 +4,7 @@ Aufgabe: <Aufgabe 8.2 Canvas>
 Name: <Judith Pauler>
 Matrikel: <272240>
 Datum: <11.05.23>
-Quellen: <>
+Quellen: <Madeleine Hansen>
 */
 var CanvasA2;
 (function (CanvasA2) {
@@ -18,6 +18,7 @@ var CanvasA2;
         crc2 = canvas.getContext("2d");
         drawBackground();
         drawMountains();
+        drawClouds();
     }
     function drawBackground() {
         console.log("Background");
@@ -48,8 +49,24 @@ var CanvasA2;
         crc2.closePath();
         crc2.stroke();
         crc2.closePath();
-        crc2.fillStyle = "gradient"; // gradient not working yet
+        crc2.fillStyle = "darkgray";
         crc2.fill();
+    }
+    function drawClouds() {
+        let particle = new Path2D();
+        let radiusParticle = 8;
+        let gradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
+        particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
+        gradient.addColorStop(1, "blue");
+        gradient.addColorStop(0, "HSLA(60, 100%, 50%, 0)");
+        crc2.fillStyle = gradient;
+        let x = 50;
+        let y = 50;
+        crc2.translate(x, y);
+        crc2.save();
+        crc2.fill(particle);
+        crc2.stroke();
+        crc2.restore();
     }
 })(CanvasA2 || (CanvasA2 = {}));
 //# sourceMappingURL=Canvas.js.map

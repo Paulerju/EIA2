@@ -3,7 +3,7 @@
   Name: <Judith Pauler>
   Matrikel: <272240>
   Datum: <11.05.23>
-  Quellen: <>
+  Quellen: <Madeleine Hansen>
   */
 namespace CanvasA2{
 
@@ -24,6 +24,7 @@ function handleLoad(_event:Event):void{
 
     drawBackground();
     drawMountains();
+    drawClouds();
  
     
 }
@@ -63,8 +64,29 @@ function drawMountains():void {
     crc2.closePath();
     crc2.stroke();
     crc2.closePath();
-    crc2.fillStyle = "gradient"; // gradient not working yet
+    crc2.fillStyle = "darkgray"; 
     crc2.fill();
+}
+
+function drawClouds() {
+
+    let particle: Path2D = new Path2D();
+    let radiusParticle: number = 8; 
+    let gradient: CanvasGradient = crc2.createRadialGradient(0,0,0,0,0,radiusParticle);
+
+    particle.arc(0,0,radiusParticle,0,2*Math.PI);
+    gradient.addColorStop(1,"blue");
+    gradient.addColorStop(0,"HSLA(60, 100%, 50%, 0)"); 
+    crc2.fillStyle = gradient;
+    let x: number = 50;
+    let y: number = 50;
+
+    crc2.translate(x, y);
+    crc2.save();  
+    crc2.fill(particle);
+    crc2.stroke();
+    crc2.restore(); 
+
 }
 
 }
