@@ -1,4 +1,6 @@
 canvas{
     width: 80%;
     height: 80%;
+   /* image-rendering: pixelated;  */
+   /*Wenn größe verändern, muss in html angegeben werden. */
 }

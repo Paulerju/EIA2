@@ -14,7 +14,7 @@ function handleLoad(_event:Event):void{
     //return; 
     crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
 
-    drawBackground();
+
     drawCircle({x: -200, y:150}, {x: 70, y: 210});
     drawT2({x: 500, y:125}, {x: 550, y: -110}); 
     drawElipse();
