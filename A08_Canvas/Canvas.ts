@@ -117,7 +117,7 @@ function drawT2(_position: Vector, _size: Vector):void{
                 let y = Math.floor(Math.random()*(100 - 20 + 1) + 20);
                 crc2.fillStyle = "#00BFFF";
                 crc2.fillText("Hello there", x1, y1);
-                crc2.strokeText("...here we are again",x, y);
+                crc2.strokeText("...here we are again",x, y); 
             }
 
             function drawT1():void {
