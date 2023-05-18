@@ -30,7 +30,7 @@ namespace CanvasA2 {
         drawTree();
         drawLanding();
         drawSun();
-
+        flying({x: 0, y:0}, {x: -400, y: 250});
 
         drawBee(-300, 400); drawBee(-500, 300); drawBee(-400, 200);
 
@@ -248,10 +248,26 @@ namespace CanvasA2 {
         circle(x + 2, y - 1, 2, false);
       }; 
 
-      function flying(){
+      function flying(_position: Vector, _size: Vector){
 
+        let x = _size.x;
+        let y = _size.y;
+         
         crc2.beginPath();
-        
+        crc2.fillStyle = "#003300"; 
+        crc2.fillRect(x,y,5,8);
+        crc2.fillStyle = "#ffffcc"; 
+        crc2.fillRect(x,y-3,5,5);
+        crc2.closePath();
+        crc2.beginPath();
+        crc2.moveTo(x, y);
+        crc2.lineTo(x -15, y-15 );
+        crc2.lineTo(x +25, y -25 );
+        crc2.stroke();
+        crc2.fillStyle = "#b30000"; 
+        crc2.fill();
+        crc2.closePath();
+   
 
       };
 

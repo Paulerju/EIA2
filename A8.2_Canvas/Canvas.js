@@ -8,6 +8,7 @@ Quellen: <Madeleine Hansen>
 */
 var CanvasA2;
 (function (CanvasA2) {
+    ;
     window.addEventListener("load", handleLoad);
     let crc2;
     function handleLoad(_event) {
@@ -21,7 +22,15 @@ var CanvasA2;
         drawClouds();
         drawBigMountains();
         drawHouse();
+        drawTree();
+        drawLanding();
+        drawSun();
+        flying({ x: 0, y: 0 }, { x: -400, y: 250 });
+        drawBee(-300, 400);
+        drawBee(-500, 300);
+        drawBee(-400, 200);
     }
+    ;
     function drawBackground() {
         console.log("Background");
         let gradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
@@ -31,6 +40,7 @@ var CanvasA2;
         crc2.fillStyle = gradient;
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
     }
+    ;
     function drawMountains() {
         let gradient = crc2.createLinearGradient(100, 50, 100, 250);
         gradient.addColorStop(0, "lightgray");
@@ -56,6 +66,7 @@ var CanvasA2;
         crc2.fillStyle = gradient;
         crc2.fill();
     }
+    ;
     let x = 50;
     let y = 80;
     let particle = new Path2D();
@@ -66,6 +77,7 @@ var CanvasA2;
         crc2.stroke();
         crc2.restore();
     }
+    ;
     function drawClouds() {
         let radiusParticle = 20;
         let gradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
@@ -147,6 +159,7 @@ var CanvasA2;
         y = -5;
         draw1();
     }
+    ;
     function drawBigMountains() {
         let gradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
         gradient.addColorStop(0, "lightgray");
@@ -166,10 +179,11 @@ var CanvasA2;
         crc2.fillStyle = "grey";
         crc2.fill();
     }
+    ;
     function drawHouse() {
         crc2.beginPath();
         crc2.rect(-250, 500, 150, 150);
-        crc2.fillStyle = "blue";
+        crc2.fillStyle = "#00394d";
         crc2.fill();
         crc2.closePath();
         crc2.beginPath();
@@ -177,8 +191,102 @@ var CanvasA2;
         crc2.stroke();
         crc2.fillStyle = "black";
         crc2.fill();
+        crc2.closePath();
+        crc2.beginPath();
+        crc2.fillStyle = "#0086b3";
+        crc2.fillRect(-100, 525, 60, 10);
+        crc2.closePath();
+        crc2.beginPath();
+        crc2.fillStyle = "black";
+        crc2.fillRect(-50, 535, 5, 115);
+        crc2.closePath();
+        crc2.beginPath();
+        crc2.fillStyle = "#004b66";
+        crc2.fillRect(-101, 590, 5, 10);
     }
+    ;
+    function drawTree() {
+        crc2.rect(-700, 330, 10, 60);
+        crc2.fillStyle = "#4d2600";
+        crc2.fill();
+        crc2.closePath();
+        crc2.beginPath();
+        crc2.arc(-695, 330, 40, 0, 2 * Math.PI);
+        crc2.fillStyle = "green";
+        crc2.fill();
+        crc2.closePath();
+        crc2.beginPath();
+        crc2.rect(-100, 420, 10, 60);
+        crc2.fillStyle = "#4d2600";
+        crc2.fill();
+        crc2.closePath();
+        crc2.beginPath();
+        crc2.arc(-96, 400, 50, 0, 2 * Math.PI);
+        crc2.fillStyle = "green";
+        crc2.fill();
+    }
+    ;
     function drawLanding() {
+        crc2.beginPath();
+        crc2.ellipse(-540, 550, 220, 90, 0, 0, 2 * Math.PI);
+        crc2.stroke();
+        crc2.fillStyle = "#bfbfbf";
+        crc2.fill();
+        crc2.closePath();
     }
+    ;
+    function drawSun() {
+        let r1 = 30;
+        let r2 = 150;
+        let gradient = crc2.createRadialGradient(0, 0, r1, 0, 0, r2);
+        gradient.addColorStop(0, "HSLA(60, 100%, 90%, 1)");
+        gradient.addColorStop(1, "HSLA(60 ,100%, 50%, 0)");
+        crc2.save();
+        crc2.fillStyle = gradient;
+        crc2.arc(0, 0, r2, 0, 2 * Math.PI);
+        crc2.fill();
+        crc2.restore();
+    }
+    const circle = function (x, y, radius, fillCircle) {
+        crc2.beginPath();
+        crc2.arc(x, y, radius, 0, Math.PI * 2, false);
+        if (fillCircle) {
+            crc2.fill();
+        }
+        else {
+            crc2.stroke();
+        }
+    };
+    function drawBee(x, y) {
+        crc2.lineWidth = 2;
+        crc2.strokeStyle = "black";
+        crc2.fillStyle = "#ffff80";
+        circle(x, y, 8, true);
+        circle(x, y, 8, false);
+        circle(x - 5, y - 11, 5, false);
+        circle(x + 5, y - 11, 5, false);
+        circle(x - 2, y - 1, 2, false);
+        circle(x + 2, y - 1, 2, false);
+    }
+    ;
+    function flying(_position, _size) {
+        let x = _size.x;
+        let y = _size.y;
+        crc2.beginPath();
+        crc2.fillStyle = "#003300";
+        crc2.fillRect(x, y, 5, 8);
+        crc2.fillStyle = "#ffffcc";
+        crc2.fillRect(x, y - 3, 5, 5);
+        crc2.closePath();
+        crc2.beginPath();
+        crc2.moveTo(x, y);
+        crc2.lineTo(x - 15, y - 15);
+        crc2.lineTo(x + 25, y - 25);
+        crc2.stroke();
+        crc2.fillStyle = "#b30000";
+        crc2.fill();
+        crc2.closePath();
+    }
+    ;
 })(CanvasA2 || (CanvasA2 = {}));
 //# sourceMappingURL=Canvas.js.map
