@@ -37,7 +37,7 @@ namespace CanvasA2 {
         human({x: -300, y: 650}, "red");
         human({x: -260, y: 640}, "purple"); human({x: -250, y: 660}, "blue"); human({x: -750, y: 660}, "#3275a8"); 
         human({x: -80, y: 610}, "#4ab1b5"); human({x: -40, y: 620}, "#614ab5");
-
+        windThing();
         drawBee(-300, 400); drawBee(-500, 300); drawBee(-400, 200);
 
     };
@@ -287,6 +287,39 @@ namespace CanvasA2 {
         crc2.fillStyle = "#ffffcc"; 
         crc2.fillRect(x,y-20,15,20);
         crc2.closePath();
+
+      }
+
+      function windThing(){
+        crc2.rect(-500,590,3,80);
+        crc2.fillStyle = "black";
+        crc2.fill();
+        crc2.closePath(); 
+        crc2.beginPath();
+        crc2.rect(-497,590,10,20);
+        crc2.fillStyle = "white";
+        crc2.fill();
+        crc2.closePath(); 
+        crc2.beginPath();
+        crc2.rect(-487,591,10,18);
+        crc2.fillStyle = "red";
+        crc2.fill();
+        crc2.closePath(); 
+        crc2.beginPath();
+        crc2.rect(-477,592,10,16);
+        crc2.fillStyle = "white";
+        crc2.fill();
+        crc2.closePath(); 
+        crc2.beginPath();
+        crc2.rect(-467,593,10,14);
+        crc2.fillStyle = "red";
+        crc2.fill();
+        crc2.closePath(); 
+        crc2.beginPath();
+        crc2.rect(-457,595,8,10);
+        crc2.fillStyle = "white";
+        crc2.fill();
+        crc2.closePath(); 
 
       }
 
