@@ -73,5 +73,9 @@ namespace OMDF{
         crc2.fill();
         
         }
+
+        talk(_text:string, callback?: () => void):void{
+            crc2.fillText("Cow: "+_text,240, 150, 100);
+        }
     }
 }

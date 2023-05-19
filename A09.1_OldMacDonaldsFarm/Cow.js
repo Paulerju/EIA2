@@ -58,6 +58,9 @@ var OMDF;
             OMDF.crc2.lineTo(290, 195);
             OMDF.crc2.fill();
         }
+        talk(_text, callback) {
+            OMDF.crc2.fillText("Cow: " + _text, 240, 150, 100);
+        }
     }
     OMDF.Cow = Cow;
 })(OMDF || (OMDF = {}));
