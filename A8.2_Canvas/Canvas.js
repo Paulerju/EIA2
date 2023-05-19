@@ -25,7 +25,16 @@ var CanvasA2;
         drawTree();
         drawLanding();
         drawSun();
-        flying({ x: 0, y: 0 }, { x: -400, y: 250 });
+        flying({ x: 0, y: 0 }, { x: -400, y: 250 }, "#b30000");
+        flying({ x: 0, y: 0 }, { x: -750, y: 150 }, "#8a0a2a");
+        flying({ x: 0, y: 0 }, { x: -250, y: 150 }, "#b85f00");
+        flying({ x: 0, y: 0 }, { x: -100, y: 250 }, "#d9af25");
+        human({ x: -300, y: 650 }, "red");
+        human({ x: -260, y: 640 }, "purple");
+        human({ x: -250, y: 660 }, "blue");
+        human({ x: -750, y: 660 }, "#3275a8");
+        human({ x: -80, y: 610 }, "#4ab1b5");
+        human({ x: -40, y: 620 }, "#614ab5");
         drawBee(-300, 400);
         drawBee(-500, 300);
         drawBee(-400, 200);
@@ -269,7 +278,7 @@ var CanvasA2;
         circle(x + 2, y - 1, 2, false);
     }
     ;
-    function flying(_position, _size) {
+    function flying(_position, _size, _color) {
         let x = _size.x;
         let y = _size.y;
         crc2.beginPath();
@@ -283,10 +292,20 @@ var CanvasA2;
         crc2.lineTo(x - 15, y - 15);
         crc2.lineTo(x + 25, y - 25);
         crc2.stroke();
-        crc2.fillStyle = "#b30000";
+        crc2.fillStyle = _color;
         crc2.fill();
         crc2.closePath();
     }
     ;
+    function human(_position, _color) {
+        let x = _position.x;
+        let y = _position.y;
+        crc2.beginPath();
+        crc2.fillStyle = _color;
+        crc2.fillRect(x, y, 15, 33);
+        crc2.fillStyle = "#ffffcc";
+        crc2.fillRect(x, y - 20, 15, 20);
+        crc2.closePath();
+    }
 })(CanvasA2 || (CanvasA2 = {}));
 //# sourceMappingURL=Canvas.js.map
