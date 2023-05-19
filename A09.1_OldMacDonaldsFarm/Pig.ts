@@ -23,13 +23,13 @@ namespace OMDF{
          drawEyes(): void {
     
             crc2.fillStyle = "black";
-            crc2.fillRect(450, 215, 10, 20);
+            crc2.fillRect(445, 215, 18, 20);
             crc2.fillStyle = "white";
-            crc2.fillRect(453, 218, 4, 4);
+            crc2.fillRect(447, 218, 4, 4);
 
    
             crc2.fillStyle = "black";
-            crc2.fillRect(485, 215, 10, 20);
+            crc2.fillRect(485, 215, 18, 20);
             crc2.fillStyle = "white";
             crc2.fillRect(488, 218, 4, 4);
         }

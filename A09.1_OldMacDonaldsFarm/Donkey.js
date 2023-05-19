@@ -19,11 +19,11 @@ var OMDF;
         }
         drawEyes() {
             OMDF.crc2.fillStyle = "black";
-            OMDF.crc2.fillRect(850, 215, 10, 20);
+            OMDF.crc2.fillRect(850, 215, 12, 20);
             OMDF.crc2.fillStyle = "white";
             OMDF.crc2.fillRect(853, 218, 4, 4);
             OMDF.crc2.fillStyle = "black";
-            OMDF.crc2.fillRect(885, 215, 10, 20);
+            OMDF.crc2.fillRect(885, 215, 12, 20);
             OMDF.crc2.fillStyle = "white";
             OMDF.crc2.fillRect(888, 218, 4, 4);
         }
