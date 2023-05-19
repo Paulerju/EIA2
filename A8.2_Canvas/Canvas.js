@@ -3,7 +3,7 @@
 Aufgabe: <Aufgabe 8.2 Canvas>
 Name: <Judith Pauler>
 Matrikel: <272240>
-Datum: <11.05.23>
+Datum: <19.05.23>
 Quellen: <Madeleine Hansen>
 */
 var CanvasA2;
