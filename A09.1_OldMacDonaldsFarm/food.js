@@ -48,8 +48,29 @@ var OMDF;
                 i++;
                 _d++;
             }
-            console.log("food");
             return;
+        }
+        eat(_animal) {
+            if (_animal == OMDF.dog) {
+                this.drawFood(3, 4, 5, 6, "#7d6f4f", "#8a7850", "#262626", "#262626");
+                console.log("Dog: 2 portion left");
+            }
+            if (_animal == OMDF.cow) {
+                this.drawFood(22, 23, 24, 25, "#1d4727", "#262626", "#262626", "#262626");
+                console.log("Cow: 1 portion left");
+            }
+            if (_animal == OMDF.pig) {
+                this.drawFood(41, 42, 43, 44, "#6e5b46", "#262626", "#262626", "#262626");
+                console.log("Pig: 1 portion left");
+            }
+            if (_animal == OMDF.chicken) {
+                this.drawFood(61, 62, 63, 64, "#c7a22a", "#c7a228", "#d1aa2a", "#262626");
+                console.log("Chicken: 3 portion left");
+            }
+            if (_animal == OMDF.donkey) {
+                this.drawFood(82, 83, 84, 85, "#93a646", "#8a9950", "#262626", "#262626");
+                console.log("Donkey: 2 portion left");
+            }
         }
         clearCanvas() {
             const canvas = this.context.canvas;

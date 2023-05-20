@@ -176,48 +176,7 @@ var OMDF;
             text.textContent = "Old MacDonald had a farm, and on his farm he had a " + this.name + ", Ee i ee i o!";
             document.body.appendChild(text);
         }
-        eat() {
-            const eatText = document.createElement("p");
-            eatText.textContent = this.name + " is eating " + this.foodType + ".";
-            document.body.appendChild(eatText);
-            if (this.foodAmount > 0) {
-                const remainingText = document.createElement("p");
-                remainingText.textContent = "Remaining " + this.foodType + ": " + this.foodAmount;
-                document.body.appendChild(remainingText);
-            }
-            else {
-                const noFoodText = document.createElement("p");
-                noFoodText.textContent = "No more " + this.foodType + " left!";
-                document.body.appendChild(noFoodText);
-            }
-        }
     }
     OMDF.Animal = Animal;
-    class Farm {
-        animals;
-        constructor() {
-            this.animals = [];
-        }
-        addAnimal(animal) {
-            this.animals.push(animal);
-        }
-        simulateDay() {
-            for (const animal of this.animals) {
-                animal.sing();
-                animal.eat();
-            }
-        }
-    }
-    // Create animals
-    const cow = new Animal("Cow", "Moo", "Grass", 10);
-    const chicken = new Animal("Chicken", "Gack", "Grains", 5);
-    const dog = new Animal("Dog", "Woof", "Meat", 3);
-    // Create farm and add animals
-    const farm = new Farm();
-    farm.addAnimal(cow);
-    farm.addAnimal(chicken);
-    farm.addAnimal(dog);
-    // Simulate a day on the farm
-    farm.simulateDay();
 })(OMDF || (OMDF = {}));
 //# sourceMappingURL=Animal.js.map
