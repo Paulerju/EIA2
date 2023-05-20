@@ -51,45 +51,94 @@ namespace OMDF{
         console.log("Everywhere a ");
         console.log("Dog: "+ dog.sound+ " "+dog.sound);
         console.log("Old MacDonald had a farm, E-I-E-I-O.");
+
       food.eat(dog);
       i++
       return;
     }
     if(i<2){
       console.log("Old MacDonald had a farm, E-I-E-I-O");
-        console.log("And on that farm he had a dog, E-I-E-I-O.");
+        console.log("And on that farm he had a cow, E-I-E-I-O.");
         console.log("With a ");
-        console.log("Dog: "+ dog.sound+ " "+dog.sound);
+        console.log("Cow: "+ cow.sound+ " "+cow.sound);
         console.log("here,");
         console.log("and a");
-        console.log("Dog: "+dog.sound+ " "+dog.sound);
+        console.log("Cow: "+cow.sound+ " "+cow.sound);
         console.log("there.");
         console.log("Here a ");
-        console.log("Dog: "+dog.sound);
+        console.log("Cow: "+cow.sound);
         console.log("there a ");
-        console.log("Dog: " +dog.sound);
+        console.log("Cow: " +cow.sound);
         console.log("Everywhere a ");
-        console.log("Dog: "+ dog.sound+ " "+dog.sound);
+        console.log("Cow: "+ cow.sound+ " "+cow.sound);
         console.log("Old MacDonald had a farm, E-I-E-I-O.");
-        
+
       food.eat(cow);
       i++
       return;
     }
     if(i<3){
-      console.log("");
+
+      console.log("Old MacDonald had a farm, E-I-E-I-O");
+      console.log("And on that farm he had a cow, E-I-E-I-O.");
+      console.log("With a ");
+      console.log("Pig: "+ pig.sound+ " "+pig.sound);
+      console.log("here,");
+      console.log("and a");
+      console.log("Pig: "+pig.sound+ " "+pig.sound);
+      console.log("there.");
+      console.log("Here a ");
+      console.log("Pig: "+pig.sound);
+      console.log("there a ");
+      console.log("Pig: " +pig.sound);
+      console.log("Everywhere a ");
+      console.log("Pig: "+ pig.sound+ " "+pig.sound);
+      console.log("Old MacDonald had a farm, E-I-E-I-O.");
+     
       food.eat(pig);
       i++
       return;
     }
     if(i<4){
-      console.log("");
+ 
+      console.log("Old MacDonald had a farm, E-I-E-I-O");
+      console.log("And on that farm he had a cow, E-I-E-I-O.");
+      console.log("With a ");
+      console.log("Chicken: "+ chicken.sound+ " "+chicken.sound);
+      console.log("here,");
+      console.log("and a");
+      console.log("Chicken: "+chicken.sound+ " "+chicken.sound);
+      console.log("there.");
+      console.log("Here a ");
+      console.log("Chicken: "+chicken.sound);
+      console.log("there a ");
+      console.log("Chicken: " +chicken.sound);
+      console.log("Everywhere a ");
+      console.log("Chicken: "+ chicken.sound+ " "+chicken.sound);
+      console.log("Old MacDonald had a farm, E-I-E-I-O.");
+
       food.eat(chicken);
       i++
       return;
     }
     if(i<5){
-      console.log("");
+ 
+      console.log("Old MacDonald had a farm, E-I-E-I-O");
+      console.log("And on that farm he had a cow, E-I-E-I-O.");
+      console.log("With a ");
+      console.log("Donkey: "+ donkey.sound+ " "+donkey.sound);
+      console.log("here,");
+      console.log("and a");
+      console.log("Donkey: "+donkey.sound+ " "+donkey.sound);
+      console.log("there.");
+      console.log("Here a ");
+      console.log("Donkey: "+donkey.sound);
+      console.log("there a ");
+      console.log("Donkey: " +donkey.sound);
+      console.log("Everywhere a ");
+      console.log("Donkey: "+ donkey.sound+ " "+donkey.sound);
+      console.log("Old MacDonald had a farm, E-I-E-I-O.");
+
       food.eat(donkey);
       i++
       return;
