@@ -1,3 +1,10 @@
+/*
+Aufgabe: <Aufgabe 9.1 OldMacDonalds>
+Name: <Judith Pauler>
+Matrikel: <272240>
+Datum: <20.05.23>
+Quellen: <Madeleine Hansen>
+*/
 namespace OMDF{
     window.addEventListener("load", handleLoad);
    export let crc2: CanvasRenderingContext2D;
