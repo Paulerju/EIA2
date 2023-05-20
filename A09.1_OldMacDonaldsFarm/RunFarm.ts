@@ -30,32 +30,66 @@ namespace OMDF{
         foodDonkey.drawFood(82,83,84,85, "#93a646","#8a9950","#7e8a4e","#778a2b"); 
        
       }
-      document.addEventListener("click", Song){
+      document.addEventListener("click", Song)
 
-      }
    let i = 0; 
       function Song():void{
+
       if(i<1){
+        console.log("Old MacDonald had a farm, E-I-E-I-O");
+        console.log("And on that farm he had a dog, E-I-E-I-O.");
+        console.log("With a ");
+        console.log("Dog: "+ dog.sound+ " "+dog.sound);
+        console.log("here,");
+        console.log("and a");
+        console.log("Dog: "+dog.sound+ " "+dog.sound);
+        console.log("there.");
+        console.log("Here a ");
+        console.log("Dog: "+dog.sound);
+        console.log("there a ");
+        console.log("Dog: " +dog.sound);
+        console.log("Everywhere a ");
+        console.log("Dog: "+ dog.sound+ " "+dog.sound);
+        console.log("Old MacDonald had a farm, E-I-E-I-O.");
       food.eat(dog);
       i++
       return;
     }
     if(i<2){
+      console.log("Old MacDonald had a farm, E-I-E-I-O");
+        console.log("And on that farm he had a dog, E-I-E-I-O.");
+        console.log("With a ");
+        console.log("Dog: "+ dog.sound+ " "+dog.sound);
+        console.log("here,");
+        console.log("and a");
+        console.log("Dog: "+dog.sound+ " "+dog.sound);
+        console.log("there.");
+        console.log("Here a ");
+        console.log("Dog: "+dog.sound);
+        console.log("there a ");
+        console.log("Dog: " +dog.sound);
+        console.log("Everywhere a ");
+        console.log("Dog: "+ dog.sound+ " "+dog.sound);
+        console.log("Old MacDonald had a farm, E-I-E-I-O.");
+        
       food.eat(cow);
       i++
       return;
     }
     if(i<3){
+      console.log("");
       food.eat(pig);
       i++
       return;
     }
     if(i<4){
+      console.log("");
       food.eat(chicken);
       i++
       return;
     }
     if(i<5){
+      console.log("");
       food.eat(donkey);
       i++
       return;
