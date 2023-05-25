@@ -5,9 +5,9 @@ export class Food {
      blockSize: number;
      context: CanvasRenderingContext2D;
   
-    constructor(blockSize: number, context: CanvasRenderingContext2D) {
-      this.blockSize = blockSize;
-      this.context = context;
+    constructor(_blockSize: number, _context: CanvasRenderingContext2D) {
+      this.blockSize = _blockSize;
+      this.context = _context;
     }
   
      drawBlock(x: number, y: number, color: string): void {
