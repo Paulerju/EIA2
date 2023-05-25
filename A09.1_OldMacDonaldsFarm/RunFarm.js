@@ -1,4 +1,11 @@
 "use strict";
+/*
+Aufgabe: <Aufgabe 9.1 OldMacDonalds>
+Name: <Judith Pauler>
+Matrikel: <272240>
+Datum: <20.05.23>
+Quellen: <Madeleine Hansen>
+*/
 var OMDF;
 (function (OMDF) {
     window.addEventListener("load", handleLoad);

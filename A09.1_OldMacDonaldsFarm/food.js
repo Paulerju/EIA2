@@ -4,9 +4,9 @@ var OMDF;
     class Food {
         blockSize;
         context;
-        constructor(blockSize, context) {
-            this.blockSize = blockSize;
-            this.context = context;
+        constructor(_blockSize, _context) {
+            this.blockSize = _blockSize;
+            this.context = _context;
         }
         drawBlock(x, y, color) {
             const xPos = x * this.blockSize;
