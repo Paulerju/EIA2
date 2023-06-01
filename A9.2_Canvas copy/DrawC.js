@@ -1,7 +1,6 @@
 "use strict";
 var Canvas;
 (function (Canvas) {
-    ;
     class background {
         drawBackground() {
             console.log("Background");
@@ -215,58 +214,6 @@ var Canvas;
             Canvas.crc2.arc(0, 0, r2, 0, 2 * Math.PI);
             Canvas.crc2.fill();
             Canvas.crc2.restore();
-        }
-        circle(x, y, radius, fillCircle) {
-            Canvas.crc2.beginPath();
-            Canvas.crc2.arc(x, y, radius, 0, Math.PI * 2, false);
-            if (fillCircle) {
-                Canvas.crc2.fill();
-            }
-            else {
-                Canvas.crc2.stroke();
-            }
-        }
-        ;
-        drawBee(x, y) {
-            Canvas.crc2.lineWidth = 2;
-            Canvas.crc2.strokeStyle = "black";
-            Canvas.crc2.fillStyle = "#ffff80";
-            this.circle(x, y, 8, true);
-            this.circle(x, y, 8, false);
-            this.circle(x - 5, y - 11, 5, false);
-            this.circle(x + 5, y - 11, 5, false);
-            this.circle(x - 2, y - 1, 2, false);
-            this.circle(x + 2, y - 1, 2, false);
-        }
-        ;
-        flying(_position, _size, _color) {
-            let x = _size.x;
-            let y = _size.y;
-            Canvas.crc2.beginPath();
-            Canvas.crc2.fillStyle = "#003300";
-            Canvas.crc2.fillRect(x, y, 5, 8);
-            Canvas.crc2.fillStyle = "#ffffcc";
-            Canvas.crc2.fillRect(x, y - 3, 5, 5);
-            Canvas.crc2.closePath();
-            Canvas.crc2.beginPath();
-            Canvas.crc2.moveTo(x, y);
-            Canvas.crc2.lineTo(x - 15, y - 15);
-            Canvas.crc2.lineTo(x + 25, y - 25);
-            Canvas.crc2.stroke();
-            Canvas.crc2.fillStyle = _color;
-            Canvas.crc2.fill();
-            Canvas.crc2.closePath();
-        }
-        ;
-        human(_position, _color) {
-            let x = _position.x;
-            let y = _position.y;
-            Canvas.crc2.beginPath();
-            Canvas.crc2.fillStyle = _color;
-            Canvas.crc2.fillRect(x, y, 15, 33);
-            Canvas.crc2.fillStyle = "#ffffcc";
-            Canvas.crc2.fillRect(x, y - 20, 15, 20);
-            Canvas.crc2.closePath();
         }
         windThing() {
             Canvas.crc2.rect(-500, 590, 3, 80);

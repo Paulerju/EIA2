@@ -1,8 +1,4 @@
 namespace Canvas{
-    interface Vector {
-        x: number;
-        y: number;
-    };
 
    export class background{
 
@@ -192,66 +188,6 @@ namespace Canvas{
         crc2.restore();
 
     }
-
-     circle (x, y, radius, fillCircle) {
-        crc2.beginPath();
-        crc2.arc(x, y, radius, 0, Math.PI * 2, false);
-        if (fillCircle) {
-          crc2.fill();
-        } else {
-          crc2.stroke();
-        }
-      };
-
-     drawBee(x, y) {
-        crc2.lineWidth = 2;
-        crc2.strokeStyle = "black";
-        crc2.fillStyle = "#ffff80";
-      
-        this.circle(x, y, 8, true);
-        this.circle(x, y, 8, false);
-        this.circle(x - 5, y - 11, 5, false);
-        this.circle(x + 5, y - 11, 5, false);
-        this.circle(x - 2, y - 1, 2, false);
-        this.circle(x + 2, y - 1, 2, false);
-      }; 
-
-       flying(_position: Vector, _size: Vector, _color:string){
-
-        let x = _size.x;
-        let y = _size.y;
-         
-        crc2.beginPath();
-        crc2.fillStyle = "#003300"; 
-        crc2.fillRect(x,y,5,8);
-        crc2.fillStyle = "#ffffcc"; 
-        crc2.fillRect(x,y-3,5,5);
-        crc2.closePath();
-        crc2.beginPath();
-        crc2.moveTo(x, y);
-        crc2.lineTo(x -15, y-15 );
-        crc2.lineTo(x +25, y -25 );
-        crc2.stroke();
-        crc2.fillStyle = _color; 
-        crc2.fill();
-        crc2.closePath();
-
-
-      };
-
-       human(_position: Vector, _color:string){
-        let x = _position.x;
-        let y = _position.y;
-
-        crc2.beginPath();
-        crc2.fillStyle = _color; 
-        crc2.fillRect(x,y,15,33);
-        crc2.fillStyle = "#ffffcc"; 
-        crc2.fillRect(x,y-20,15,20);
-        crc2.closePath();
-
-      }
-
        windThing(){
         crc2.rect(-500,590,3,80);
         crc2.fillStyle = "black";
