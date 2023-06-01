@@ -12,10 +12,12 @@ namespace Canvas {
    export let x: number = 50;
    export  let y: number = 80;
    export  let particle: Path2D = new Path2D();
-   export let canvas: HTMLCanvasElement = document.querySelector("canvas")!;
+  
+   
    
 
     function handleLoad(_event: Event): void {
+        let canvas: HTMLCanvasElement = document.querySelector("canvas")!;
         console.log("canvas not working"); 
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
         let drawc : background = new background; 

@@ -12,10 +12,10 @@ var Canvas;
     Canvas.x = 50;
     Canvas.y = 80;
     Canvas.particle = new Path2D();
-    Canvas.canvas = document.querySelector("canvas");
     function handleLoad(_event) {
+        let canvas = document.querySelector("canvas");
         console.log("canvas not working");
-        Canvas.crc2 = Canvas.canvas.getContext("2d");
+        Canvas.crc2 = canvas.getContext("2d");
         let drawc = new Canvas.background;
         let newBee = new Canvas.bee;
         let newHuman = new Canvas.human;

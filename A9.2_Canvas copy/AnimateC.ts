@@ -1,5 +1,5 @@
 namespace Canvas{
-
+    let canvas: HTMLCanvasElement = document.querySelector("canvas")!;
     class animate{
 
         windsock(){
