@@ -12,6 +12,7 @@ var Canvas;
     Canvas.x = 50;
     Canvas.y = 80;
     Canvas.particle = new Path2D();
+    let canvas = document.querySelector("canvas");
     function handleLoad(_event) {
         let canvas = document.querySelector("canvas");
         console.log("canvas not working");
@@ -43,5 +44,7 @@ var Canvas;
         newBee.drawBee(-400, 200);
     }
     ;
+    window.setInterval(() => {
+    }, 100);
 })(Canvas || (Canvas = {}));
 //# sourceMappingURL=Canvas.js.map

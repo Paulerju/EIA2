@@ -33,7 +33,7 @@ namespace Canvas {
         drawc.drawLanding();
         drawc.drawSun();
         
-      /*  newHuman.flying({x: 0, y:0}, {x: -400, y: 250}, "#b30000");
+        newHuman.flying({x: 0, y:0}, {x: -400, y: 250}, "#b30000");
         newHuman.flying({x: 0, y:0}, {x: -750, y: 150},"#8a0a2a");
         newHuman.flying({x: 0, y:0}, {x: -250, y: 150},"#b85f00");
         newHuman.flying({x: 0, y:0}, {x: -100, y: 250},"#d9af25");
@@ -41,29 +41,14 @@ namespace Canvas {
         newHuman.human({x: -260, y: 640}, "purple"); newHuman.human({x: -250, y: 660}, "blue"); newHuman.human({x: -750, y: 660}, "#3275a8"); 
         newHuman.human({x: -80, y: 610}, "#4ab1b5"); newHuman.human({x: -40, y: 620}, "#614ab5");
         drawc.windThing();
-        newBee.drawBee(-300, 400); newBee.drawBee(-500, 300); newBee.drawBee(-400, 200);*/
+        newBee.drawBee(-300, 400); newBee.drawBee(-500, 300); newBee.drawBee(-400, 200);
 
-        let list = [];
-        for (let i = 0; i < 10; i++) {
-            list[i] = new human(new Vector((Math.floor(Math.random() * (1000 - 0 + 1)) + 0) * 0.001, (Math.floor(Math.random() * (500 - 100 + 1)) + 100) * 0.001), new Vector(0.08, 0.08));
-        }
+       
     };
 
     window.setInterval(()=> {
 
-            crc2.putImageData( crc2.getImageData(0, 0, canvas.width, canvas.height),0,0);
-
-            for (let i = 0; i < list.length; i++) {
-                let list = list[i]
-                let change = parachutist.movement_parachute(0.1);
-                if (change == true) {
-                    parachutelist.splice(i, 1);
-                    peopleList.push(new People(parachutist.position, new Vector(Math.floor(Math.random() * (0.5 - 0.3 + 1)) + 0.3, Math.floor(Math.random() * (0.5 - 0.3 + 1)) + 0.3)))
-                }
-                parachutist.drawParachutes();
-
-            }
-
+         
 
     }, 100)
 
