@@ -5,6 +5,7 @@ Matrikel: <272240>
 Datum: <01.06.23>
 Quellen: <Madeleine Hansen>
 */
+
 namespace Canvas {
 
    window.addEventListener("load", handleLoad);
@@ -12,7 +13,7 @@ namespace Canvas {
    export let x: number = 50;
    export  let y: number = 80;
    export  let particle: Path2D = new Path2D();
-   let canvas: HTMLCanvasElement = document.querySelector("canvas")!;
+  export let canvas: HTMLCanvasElement = document.querySelector("canvas")!;
    
    
 
@@ -22,7 +23,7 @@ namespace Canvas {
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
         let drawc : background = new background; 
         let newBee : bee = new bee; 
-        let newHuman : human = new human; 
+        let newHuman : human = new human({x: 0, y:0}, {x: -400, y: 250}); 
 
         drawc.drawBackground();
         drawc.drawMountains();
@@ -32,6 +33,8 @@ namespace Canvas {
         drawc.drawTree();
         drawc.drawLanding();
         drawc.drawSun();
+
+        newHuman.fly(new Vektor(0, 0), new Vektor(-400, 250));
         
         newHuman.flying({x: 0, y:0}, {x: -400, y: 250}, "#b30000");
         newHuman.flying({x: 0, y:0}, {x: -750, y: 150},"#8a0a2a");
@@ -45,6 +48,8 @@ namespace Canvas {
 
        
     };
+
+    
 
     window.setInterval(()=> {
 

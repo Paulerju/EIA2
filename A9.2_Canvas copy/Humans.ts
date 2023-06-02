@@ -4,9 +4,15 @@ namespace Canvas{
         x: number;
         y: number;
     };
-    
+
     export class human{
 
+        position: Vektor;
+    color: string;
+
+    constructor(position: Vektor, color: string) {
+      this.position = position;
+      this.color = color;}
         
     flying(_position: Vector, _size: Vector, _color:string){
 
@@ -43,5 +49,44 @@ namespace Canvas{
         crc2.closePath();
 
       };
+
+      move(target: Vektor): void {
+        const speed = 2; // Adjust the speed as needed
+        const direction = target.add(this.position.multiply(-1));
+        const distance = Math.sqrt(direction.x * direction.x + direction.y * direction.y);
+        const normalizedDirection = direction.multiply(1 / distance);
+        const movement = normalizedDirection.multiply(speed);
+        this.position = this.position.add(movement);
+      }
+
+
+
+      fly(start: Vektor, end: Vektor): void {
+        const duration = 1000; // Adjust the duration as needed
+        let startTime = Date.now();
+        let currentTime = startTime;
+  
+        const animate = () => {
+          crc2.clearRect(0, 0, canvas.width, canvas.height);
+  
+          currentTime = Date.now();
+          const elapsed = currentTime - startTime;
+          const progress = elapsed / duration;
+  
+          if (progress < 1) {
+            const currentPos = start.add(end.add(start.multiply(-1)).multiply(progress));
+            this.move(currentPos);
+          //  this.draw();
+            requestAnimationFrame(animate);
+          } else {
+            this.move(end);
+         //   this.draw();
+          }
+        };
+  
+        animate();
+      }
+
+
 }
 }

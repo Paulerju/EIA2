@@ -1,32 +1,20 @@
 "use strict";
 var Canvas;
 (function (Canvas) {
-    class Vector {
+    class Vektor {
         x;
         y;
         constructor(_x, _y) {
-            this.set(_x, _y);
+            this.x = Canvas.x;
+            this.y = Canvas.y;
         }
-        set(_x, _y) {
-            this.x = _x;
-            this.y = _y;
+        add(vector) {
+            return new Vektor(this.x + vector.x, this.y + vector.y);
         }
-        scale(_factor) {
-            this.x *= _factor;
-            this.y *= _factor;
-        }
-        add(_addend) {
-            this.x += _addend.x;
-            this.y += _addend.y;
-        }
-        subtract(_sub) {
-            this.x -= _sub.x;
-            this.y -= _sub.y;
-        }
-        subtract_climb(_sub) {
-            this.y -= _sub.y;
+        multiply(scalar) {
+            return new Vektor(this.x * scalar, this.y * scalar);
         }
     }
-    Canvas.Vector = Vector;
+    Canvas.Vektor = Vektor;
 })(Canvas || (Canvas = {}));
 //# sourceMappingURL=Vektor.js.map

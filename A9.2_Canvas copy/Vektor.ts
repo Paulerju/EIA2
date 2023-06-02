@@ -1,36 +1,22 @@
 namespace Canvas{
 
-    export class Vector{
+    export class Vektor{
 
         x:number;
         y:number;
     
         constructor(_x:number, _y:number){
-            this.set(_x,_y);
+            this.x = x;
+            this.y = y;
         }
     
-        set(_x:number,_y:number):void{
-            this.x=_x;
-            this.y=_y;
+        add(vector: Vektor): Vektor {
+            return new Vektor(this.x + vector.x, this.y + vector.y);
+          }
+      
+          multiply(scalar: number): Vektor {
+            return new Vektor(this.x * scalar, this.y * scalar);
+          }
         }
-    
-        scale(_factor:number):void{
-            this.x*=_factor;
-            this.y*=_factor;
-        }
-    
-        add(_addend:Vector):void{
-            this.x+=_addend.x;
-            this.y+=_addend.y;
-        }
-        subtract(_sub:Vector):void{
-            this.x-=_sub.x;
-            this.y-=_sub.y;
-        }
-        subtract_climb(_sub:Vector):void{
-            this.y-=_sub.y;
-        }
-    
-    }
 
 }
