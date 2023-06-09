@@ -22,19 +22,19 @@ namespace Canvas {
         console.log("canvas not working"); 
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
         let drawc : background = new background; 
-        let newBee : bee = new bee; 
-        let newHuman : human = new human({x: 0, y:0}, {x: -400, y: 250}); 
+        let newBee : bee = new bee(5); 
+        let newHuman : human = new human(10, "red"); 
 
         drawc.drawBackground();
         drawc.drawMountains();
-        drawc.drawClouds();
+        drawc.drawClouds(); 
         drawc.drawBigMountains();
         drawc.drawHouse();
         drawc.drawTree();
         drawc.drawLanding();
         drawc.drawSun();
 
-        newHuman.fly(new Vektor(0, 0), new Vektor(-400, 250));
+        newHuman.move(new Vektor(0, 0), new Vektor(-400, 250));
         
         newHuman.flying({x: 0, y:0}, {x: -400, y: 250}, "#b30000");
         newHuman.flying({x: 0, y:0}, {x: -750, y: 150},"#8a0a2a");
