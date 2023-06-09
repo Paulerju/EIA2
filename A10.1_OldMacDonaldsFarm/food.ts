@@ -1,4 +1,4 @@
-namespace OMDF{
+namespace OMDF2{
 
 export class Food {
     

@@ -1,6 +1,6 @@
 "use strict";
-var OMDF;
-(function (OMDF) {
+var OMDF2;
+(function (OMDF2) {
     class Food {
         blockSize;
         context;
@@ -15,16 +15,16 @@ var OMDF;
             this.context.fillRect(xPos, yPos, this.blockSize, this.blockSize);
         }
         drawManger() {
-            OMDF.crc2.fillStyle = "#362109";
-            OMDF.crc2.fillRect(20, 420, 150, 100);
-            OMDF.crc2.fillStyle = "#362109";
-            OMDF.crc2.fillRect(210, 420, 150, 100);
-            OMDF.crc2.fillStyle = "#362109";
-            OMDF.crc2.fillRect(400, 420, 150, 100);
-            OMDF.crc2.fillStyle = "#362109";
-            OMDF.crc2.fillRect(600, 420, 150, 100);
-            OMDF.crc2.fillStyle = "#362109";
-            OMDF.crc2.fillRect(810, 420, 150, 100);
+            OMDF2.crc2.fillStyle = "#362109";
+            OMDF2.crc2.fillRect(20, 420, 150, 100);
+            OMDF2.crc2.fillStyle = "#362109";
+            OMDF2.crc2.fillRect(210, 420, 150, 100);
+            OMDF2.crc2.fillStyle = "#362109";
+            OMDF2.crc2.fillRect(400, 420, 150, 100);
+            OMDF2.crc2.fillStyle = "#362109";
+            OMDF2.crc2.fillRect(600, 420, 150, 100);
+            OMDF2.crc2.fillStyle = "#362109";
+            OMDF2.crc2.fillRect(810, 420, 150, 100);
         }
         drawFood(_a, _b, _c, _d, _color1, _color2, _color3, _color4) {
             let i = 0;
@@ -51,23 +51,23 @@ var OMDF;
             return;
         }
         eat(_animal) {
-            if (_animal == OMDF.dog) {
+            if (_animal == OMDF2.dog) {
                 this.drawFood(3, 4, 5, 6, "#7d6f4f", "#8a7850", "#262626", "#262626");
                 console.log("Dog: 2 portion left");
             }
-            if (_animal == OMDF.cow) {
+            if (_animal == OMDF2.cow) {
                 this.drawFood(22, 23, 24, 25, "#1d4727", "#262626", "#262626", "#262626");
                 console.log("Cow: 1 portion left");
             }
-            if (_animal == OMDF.pig) {
+            if (_animal == OMDF2.pig) {
                 this.drawFood(41, 42, 43, 44, "#6e5b46", "#262626", "#262626", "#262626");
                 console.log("Pig: 1 portion left");
             }
-            if (_animal == OMDF.chicken) {
+            if (_animal == OMDF2.chicken) {
                 this.drawFood(61, 62, 63, 64, "#c7a22a", "#c7a228", "#d1aa2a", "#262626");
                 console.log("Chicken: 3 portion left");
             }
-            if (_animal == OMDF.donkey) {
+            if (_animal == OMDF2.donkey) {
                 this.drawFood(82, 83, 84, 85, "#93a646", "#8a9950", "#262626", "#262626");
                 console.log("Donkey: 2 portion left");
             }
@@ -77,6 +77,6 @@ var OMDF;
             this.context.clearRect(0, 0, canvas.width, canvas.height);
         }
     }
-    OMDF.Food = Food;
-})(OMDF || (OMDF = {}));
+    OMDF2.Food = Food;
+})(OMDF2 || (OMDF2 = {}));
 //# sourceMappingURL=food.js.map

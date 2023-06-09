@@ -5,7 +5,7 @@ Matrikel: <272240>
 Datum: <20.05.23>
 Quellen: <Madeleine Hansen>
 */
-namespace OMDF{
+namespace OMDF2{
     window.addEventListener("load", handleLoad);
    export let crc2: CanvasRenderingContext2D;
    let canvas: HTMLCanvasElement = document.querySelector("canvas")!;
