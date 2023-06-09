@@ -1,0 +1,67 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    max-width: 375px;
+    max-height: 667px;
+    background-color: #bcc5b4;
+    text-align: center;
+}
+
+#h1 {
+    font-size: 25px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+#h2 {
+    font-size: 20px;
+}
+
+#newtodo,
+#edit,
+#add,
+#delete
+{
+    margin-top: 15px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#list {
+    background-color: white;
+    height: 250px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+
+#formular {
+    margin-top: 30px;
+    background-color: white;
+    height: 300px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+#name,
+#todos,
+#date,
+#comment,
+#inwork,
+#notinwork {
+    margin-top: 15px;
+    background-color: aliceblue;
+}
+
+
+label {
+    background-color: white;
+}
+
+#hidden{
+    visibility: hidden; 
+}
+
+#field{
+    background-color: white;
+}
