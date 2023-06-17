@@ -49,10 +49,11 @@ namespace FlyingPeople3 {
         window.setInterval(animateBumblebee, 1);
     }
 
-    let FlyingPerson: paraglider[] = [];
-    let insectArray: bumblebees[] = [];
+    let AllFlying: FlyingObject[] = []; 
+    //let FlyingPerson: paraglider[] = [];
+   // let insectArray: bumblebees[] = [];
 
-    console.log(FlyingPerson[5])
+    console.log(AllFlying)
 
     export let landingzone: Vector = new Vector(400, 500); 
     export let hikingzone: Vector = new Vector(0, 440);
@@ -60,10 +61,10 @@ namespace FlyingPeople3 {
 
     function createFlyingPerson(): void {
         for (let iFlyingPerson: number = 0; iFlyingPerson < 10; iFlyingPerson++) {
-            let paraglideri: paraglider = new paraglider(new Vector(400, 500), new Vector(400, 500), "flying");
-            FlyingPerson.push(paraglideri);
+            let paraglideri: FlyingObject = new FlyingObject(new Vector(400, 50), new Vector(30, 150), "flying");
+            AllFlying.push(paraglideri);
             console.log(paraglideri)
-            console.log(FlyingPerson)
+            console.log(AllFlying)
         }
     }
 
@@ -71,25 +72,28 @@ namespace FlyingPeople3 {
         crc2.clearRect(0, 0, 1000, 600);
         crc2.putImageData(imgData, 0, 0);
 
-        for (let paraglideri of FlyingPerson) {
-            paraglideri.move(1 / 50); 
-            paraglideri.draw(new Vector(150, 150), new Vector(10, 16));
+        for (let paraglideri of AllFlying) {
+            paraglideri.doActivity(1 / 50); 
+            paraglideri.draw(2);
             window.setInterval(animateFlyingPerson, 10)
         }
 
     }
 
     function createBumbleBee(): void {
-        for (let i: number = 0; i < 5; i++) {
-            let bumblebee: bumblebees = new bumblebees(0.5, new Vector(10, 0));
-            insectArray.push(bumblebee);
+        crc2.clearRect(0, 0, 1000, 600);
+        crc2.putImageData(imgData, 0, 0);
+
+        for (let i:number = 0; i <5; i++) {
+            let bumblebee: bumblebees = new bumblebees(new Vector(200,80), new Vector(20,-200),"walking"); 
+            AllFlying.push(bumblebee);
         }
     }
 
     function animateBumblebee(): void {
-        for (let bumblebee of insectArray) {
-            bumblebee.move(1 / 50);
-            bumblebee.draw();
+        for (let bumblebee of AllFlying) {
+            bumblebee.doActivity(1 / 50);
+            bumblebee.draw(0);
         }
     }
 

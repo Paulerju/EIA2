@@ -39,39 +39,42 @@ var FlyingPeople3;
         createBumbleBee();
         window.setInterval(animateBumblebee, 1);
     }
-    let FlyingPerson = [];
-    let insectArray = [];
-    console.log(FlyingPerson[5]);
+    let AllFlying = [];
+    //let FlyingPerson: paraglider[] = [];
+    // let insectArray: bumblebees[] = [];
+    console.log(AllFlying);
     FlyingPeople3.landingzone = new FlyingPeople3.Vector(400, 500);
     FlyingPeople3.hikingzone = new FlyingPeople3.Vector(0, 440);
     FlyingPeople3.flystart = new FlyingPeople3.Vector(50, 150);
     function createFlyingPerson() {
         for (let iFlyingPerson = 0; iFlyingPerson < 10; iFlyingPerson++) {
-            let paraglideri = new FlyingPeople3.paraglider(new FlyingPeople3.Vector(400, 500), new FlyingPeople3.Vector(400, 500), "flying");
-            FlyingPerson.push(paraglideri);
+            let paraglideri = new FlyingPeople3.FlyingObject(new FlyingPeople3.Vector(400, 50), new FlyingPeople3.Vector(30, 150), "flying");
+            AllFlying.push(paraglideri);
             console.log(paraglideri);
-            console.log(FlyingPerson);
+            console.log(AllFlying);
         }
     }
     function animateFlyingPerson() {
         FlyingPeople3.crc2.clearRect(0, 0, 1000, 600);
         FlyingPeople3.crc2.putImageData(FlyingPeople3.imgData, 0, 0);
-        for (let paraglideri of FlyingPerson) {
-            paraglideri.move(1 / 50);
-            paraglideri.draw(new FlyingPeople3.Vector(150, 150), new FlyingPeople3.Vector(10, 16));
+        for (let paraglideri of AllFlying) {
+            paraglideri.doActivity(1 / 50);
+            paraglideri.draw(2);
             window.setInterval(animateFlyingPerson, 10);
         }
     }
     function createBumbleBee() {
+        FlyingPeople3.crc2.clearRect(0, 0, 1000, 600);
+        FlyingPeople3.crc2.putImageData(FlyingPeople3.imgData, 0, 0);
         for (let i = 0; i < 5; i++) {
-            let bumblebee = new FlyingPeople3.bumblebees(0.5, new FlyingPeople3.Vector(10, 0));
-            insectArray.push(bumblebee);
+            let bumblebee = new FlyingPeople3.bumblebees(new FlyingPeople3.Vector(200, 80), new FlyingPeople3.Vector(20, -200), "walking");
+            AllFlying.push(bumblebee);
         }
     }
     function animateBumblebee() {
-        for (let bumblebee of insectArray) {
-            bumblebee.move(1 / 50);
-            bumblebee.draw();
+        for (let bumblebee of AllFlying) {
+            bumblebee.doActivity(1 / 50);
+            bumblebee.draw(0);
         }
     }
 })(FlyingPeople3 || (FlyingPeople3 = {}));

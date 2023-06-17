@@ -1,9 +1,8 @@
 namespace FlyingPeople3 {
 
-    export class paraglider {
+    export class FlyingObject {
         position: Vector;
-        velocity: Vector;
-        activity: string;
+        velocity: Vector; 
 
         constructor(_velocity: Vector, _position: Vector, _activity: string) {
 
@@ -13,10 +12,22 @@ namespace FlyingPeople3 {
 
             this.position = new Vector(150, 20);
             this.position = _position;
-
-            this.activity = "flying";
-            this.activity = _activity;
+       
         }
+
+        doActivity(_timeslice: number): void {
+        
+       } 
+
+       draw(_timeslice: number): void {
+        
+       } 
+
+    }
+
+    export class paraglider extends FlyingObject {
+        activity: string;
+
 
         getRandomNumber(_max: number, _min: number = 0): number {
             return Math.floor(Math.random() * _max) + _min;
@@ -36,21 +47,21 @@ namespace FlyingPeople3 {
             return randomColor;
         }
 
-        draw(_position: Vector, _size: Vector) {
+        draw():void {
 
             if (this.activity = "flying") {
                 //Schirm
                 crc2.beginPath();
                 crc2.fillStyle = this.changeColor();
-                crc2.fillRect(_position.x, _position.y, 10, 16);
+                crc2.fillRect(this.position.x, this.position.y, 10, 16);
                 crc2.fillStyle = this.changeColor();
-                crc2.fillRect(_position.x, _position.y - 6, 10, 10);
+                crc2.fillRect(this.position.x, this.position.y - 6, 10, 10);
                 crc2.closePath();
 
                 crc2.beginPath();
-                crc2.moveTo(_position.x, _position.y);
-                crc2.lineTo(_position.x - 20, _position.y - 20);
-                crc2.lineTo(_position.x + 30, _position.y - 30);
+                crc2.moveTo(this.position.x, this.position.y);
+                crc2.lineTo(this.position.x - 20, this.position.y - 20);
+                crc2.lineTo(this.position.x + 30, this.position.y - 30);
                 crc2.stroke();
                 crc2.fillStyle = this.changeColor();
                 crc2.fill();
@@ -61,25 +72,25 @@ namespace FlyingPeople3 {
                 //Kein Schirm
                 crc2.beginPath();
                 crc2.fillStyle = this.changeColor();
-                crc2.fillRect(_position.x, _position.y, 10, 16);
+                crc2.fillRect(this.position.x, this.position.y, 10, 16);
 
                 crc2.fillStyle = this.changeColor();
-                crc2.fillRect(_position.x, _position.y - 6, 10, 10);
+                crc2.fillRect(this.position.x, this.position.y - 6, 10, 10);
                 crc2.closePath();
             }
             if (this.activity = "climbing") {
                 //KeinSchirm
                 crc2.beginPath();
                 crc2.fillStyle = this.changeColor();
-                crc2.fillRect(_position.x, _position.y, 10, 16);
+                crc2.fillRect(this.position.x, this.position.y, 10, 16);
 
                 crc2.fillStyle = this.changeColor();
-                crc2.fillRect(_position.x, _position.y - 6, 10, 10);
+                crc2.fillRect(this.position.x, this.position.y - 6, 10, 10);
                 crc2.closePath();
             }
         };
 
-        move(_timeslice: number): void {
+        doActivity(_timeslice: number): void {
             let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset); 
@@ -107,4 +118,56 @@ namespace FlyingPeople3 {
       
 
     }
+
+    export class bumblebees extends FlyingObject {
+        size: Vector;
+    
+        doActivity(_timeslice: number): void {
+    
+            let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
+            offset.scale(_timeslice);
+            this.position.add(offset);
+    
+            if (this.position.x < 0)
+                this.position.x += crc2.canvas.width;
+            if (this.position.y < 0)
+                this.position.y += crc2.canvas.height;
+            if (this.position.x > crc2.canvas.width)
+                this.position.x -= crc2.canvas.width;
+            if (this.position.y > crc2.canvas.height)
+                this.position.y -= crc2.canvas.height;
+        }
+    
+        draw() {
+    
+            console.log("Bee1");
+            crc2.save();
+            crc2.translate(this.position.x, this.position.y);
+    
+            let grd = crc2.createLinearGradient(2, 3, 6, 8);
+            grd.addColorStop(0, "yellow");
+            grd.addColorStop(1, "black");
+            grd.addColorStop(1, "yellow");
+    
+            crc2.beginPath();
+            crc2.ellipse(-2, -10, 8, 2, 80, -2, 2 * Math.PI);
+            crc2.fillStyle = "white";
+            crc2.fill();
+    
+            crc2.beginPath();
+            crc2.ellipse(0, 0, 5, 10, Math.PI / 2, 0, 2 * Math.PI);
+            crc2.fillStyle = grd;
+            crc2.fill();
+    
+            crc2.beginPath();
+            crc2.ellipse(2, -9, 8, 2, -80, 20, 2 * Math.PI);
+            crc2.fillStyle = "lightgrey";
+            crc2.fill();
+    
+            crc2.restore();
+        };
+    }
+
+
+    
 }
